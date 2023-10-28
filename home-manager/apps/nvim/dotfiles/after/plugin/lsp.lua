@@ -28,7 +28,7 @@ require('mason-lspconfig').setup({
     'pyright',
     'pyre',
     -- ruby
-    'ruby_ls',
+    -- 'solargraph', fails for nixos right now, no clue and not doing dev in ruby right now so problem for later.
     -- SQL
     'sqlls',
     -- YAML

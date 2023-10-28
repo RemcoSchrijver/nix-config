@@ -15,6 +15,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./apps
+    ./services
   ];
 
   nixpkgs = {
@@ -34,10 +35,13 @@
     username = "remco";
     homeDirectory = "/home/remco";
   };
-
+  
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
+
+  # Enable XDG packages so we can use existing dotfiles.
+  xdg.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
