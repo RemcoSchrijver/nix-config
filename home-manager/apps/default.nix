@@ -5,5 +5,6 @@
     ./nvim/nvim.nix
     ./firefox.nix
     ./git.nix
+    ./direnv.nix
   ];
 }
