@@ -91,8 +91,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable flatpak
+  # Enable flatpak and set paths
   services.flatpak.enable = true;
+  environment.sessionVariables = rec {
+      XDG_DATA_DIRS = [
+        "/var/lib/flatpak/exports/share"
+        "/home/remco/.local/share/flatpak/exports/share"
+      ];
+  };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -151,6 +157,8 @@
   ];
 
   programs.ssh.startAgent = true;
+
+  programs.partition-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

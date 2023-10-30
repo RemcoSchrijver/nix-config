@@ -4,6 +4,7 @@
   imports = [
     ./nvim/nvim.nix
     ./firefox.nix
+    ./chromium.nix
     ./git.nix
     ./direnv.nix
     ./mattermost.nix
