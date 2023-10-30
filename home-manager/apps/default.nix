@@ -8,5 +8,6 @@
     ./direnv.nix
     ./mattermost.nix
     ./element.nix
+    ./spotify.nix
   ];
 }
