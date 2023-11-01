@@ -124,7 +124,7 @@
   users.users.remco = {
     isNormalUser = true;
     description = "Remco";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kate
       thunderbird
@@ -155,6 +155,13 @@
     openjdk
     ruby
   ];
+
+  # Enable docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   programs.ssh.startAgent = true;
 

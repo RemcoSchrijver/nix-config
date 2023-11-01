@@ -27,6 +27,15 @@
     [ { device = "/dev/disk/by-uuid/b212867a-ef75-43b8-9ebf-510842a9ff7c"; }
     ];
 
+  # Extra drives mounted
+  fileSystems."/games" =
+    { device = "/dev/disk/by-label/Games";
+    };
+
+  fileSystems."/data" =
+    { device = "/dev/disk/by-label/Data";
+    };
+
   # Display drivers
   # Enable OpenGL
   hardware.opengl = {
@@ -47,8 +56,8 @@
     # Nvidia finegrained powermangement only works on Turing or newer cards.
     powerManagement.finegrained = false;
 
-    # Open source kernel module
-    open = true;
+    # Open source kernel module (seems to break steam games maybe?)
+    open = false;
 
     # Enable Nvidia settings menu
     nvidiaSettings = true;
