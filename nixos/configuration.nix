@@ -154,14 +154,20 @@
     python3
     openjdk
     ruby
+
+    # Runtime dependencies paradox launcher
+    libnotify
+    nss
+    alsa-lib
   ];
 
   # Enable docker
   virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  virtualisation.docker.enableNvidia = true;
+  # virtualisation.docker.rootless = {
+    # enable = true;
+    # setSocketVariable = true;
+  # };
 
   programs.ssh.startAgent = true;
 

@@ -10,5 +10,7 @@
     ./mattermost.nix
     ./element.nix
     ./spotify.nix
+    ./simplescreenrecorder.nix
+    ./qpwgraph.nix
   ];
 }
