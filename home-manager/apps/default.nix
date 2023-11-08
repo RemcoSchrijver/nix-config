@@ -12,5 +12,6 @@
     ./spotify.nix
     ./simplescreenrecorder.nix
     ./qpwgraph.nix
+    ./nextcloud-client.nix
   ];
 }
