@@ -67,6 +67,9 @@ local plugins = {
         'numToStr/Comment.nvim',
         lazy = false,
     },
+    {
+        'luk400/vim-jukit'
+    },
 }
 
 local opts = {}

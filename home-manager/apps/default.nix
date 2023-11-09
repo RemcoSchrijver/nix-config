@@ -13,5 +13,6 @@
     ./simplescreenrecorder.nix
     ./qpwgraph.nix
     ./nextcloud-client.nix
+    ./jetbrains.nix
   ];
 }
