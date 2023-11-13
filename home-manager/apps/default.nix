@@ -15,5 +15,6 @@
     ./nextcloud-client.nix
     ./jetbrains.nix
     ./zoom.nix
+    ./kde.nix
   ];
 }
