@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Shell script to install your public key on a remote machine
 # Takes the remote machine name as an argument.
 # Obviously, the remote machine must accept password authentication,
