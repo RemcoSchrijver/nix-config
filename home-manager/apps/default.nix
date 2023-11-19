@@ -8,7 +8,7 @@
     ./git.nix
     ./direnv.nix
     ./mattermost.nix
-    ./element.nix
+    ./matrix.nix
     ./spotify.nix
     ./simplescreenrecorder.nix
     ./qpwgraph.nix
@@ -16,5 +16,6 @@
     ./jetbrains.nix
     ./zoom.nix
     ./kde.nix
+    ./zotero.nix
   ];
 }

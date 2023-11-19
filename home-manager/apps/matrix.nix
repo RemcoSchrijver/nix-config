@@ -2,7 +2,7 @@
 
 {
     home.packages = [
-        pkgs.element-desktop
+        pkgs.fluffychat
     ];
 }
 
