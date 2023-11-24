@@ -63,7 +63,7 @@
     nvidiaSettings = true;
 
     # Set package, sticking with stable for now.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

@@ -17,5 +17,6 @@
     ./zoom.nix
     ./kde.nix
     ./zotero.nix
+    ./game-dependencies.nix
   ];
 }

@@ -22,6 +22,9 @@
     # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "openssl-1.1.1w"
+      ];
     };
   };
 
@@ -159,6 +162,9 @@
     libnotify
     nss
     alsa-lib
+
+    # Probably a .net core 3.1 dependency
+    openssl_1_1
 
     # Encrypt folders 
     libsForQt5.plasma-vault
