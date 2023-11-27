@@ -3,6 +3,7 @@
 {
   imports = [
     ./nvim/nvim.nix
+    ./uair/uair.nix
     ./firefox.nix
     ./chromium.nix
     ./git.nix
