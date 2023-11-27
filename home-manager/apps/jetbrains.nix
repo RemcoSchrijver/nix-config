@@ -3,6 +3,7 @@
 {
     home.packages = [
         pkgs.jetbrains.dataspell
+        pkgs.jetbrains.rider
     ];
 }
 
