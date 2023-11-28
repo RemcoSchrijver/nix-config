@@ -11,6 +11,6 @@
     xdg.configFile."uair".source = ./dotfiles;
 
     home.shellAliases = {
-        uair = "uair | yad --progress --no-buttons --css=\"* { font-size: 80px; }\"";
+        uair = "uair | yad --progress --no-buttons --css=\"* { font-size: 80px; }\" --title=Timer --on-top --skip-taskbar";
     };
 }
