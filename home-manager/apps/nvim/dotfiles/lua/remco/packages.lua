@@ -67,6 +67,12 @@ local plugins = {
         'numToStr/Comment.nvim',
         lazy = false,
     },
+    {
+        'scalameta/nvim-metals',
+        dependencies = {
+			'nvim-lua/plenary.nvim'
+        }
+    },
 }
 
 local opts = {}
