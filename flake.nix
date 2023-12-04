@@ -8,22 +8,33 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+    
+    # Hardware quirks
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { 
     self,
     nixpkgs,
     home-manager,
+    nixos-hardware,
     ...
   } @ inputs: let
   inherit (self) outputs;
   in {
     nixosConfigurations = {
-      remco = nixpkgs.lib.nixosSystem {
+      dekstop = nixpkgs.lib.nixosSystem {
 	specialArgs = {inherit inputs outputs;};
 
-	modules = [./nixos/configuration.nix];
+	modules = [./nixos/desktop/configuration.nix];
+      };
+      laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+
+          modules = [
+            ./nixos/laptop/configuration.nix
+#            nixos-hardware.nixosModules.lenovo-legion-16ach6h
+          ];
       };
     };
     
