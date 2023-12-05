@@ -1,7 +1,7 @@
 { config, pkgs, theme, ... }:
 
 {
-    home.packages = [
-        pkgs.spotify
-    ];
+  home.packages = [
+    pkgs.spotify
+  ];
 }

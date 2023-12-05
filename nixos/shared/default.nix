@@ -1,17 +1,16 @@
-{ 
-  inputs,
-  lib,
-  config, 
-  pkgs, 
-  ... 
+{ inputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # Enable flatpak and set paths
   services.flatpak.enable = true;
   environment.sessionVariables = rec {
-      XDG_DATA_DIRS = [
-        "/var/lib/flatpak/exports/share"
-        "/home/remco/.local/share/flatpak/exports/share"
-      ];
+    XDG_DATA_DIRS = [
+      "/var/lib/flatpak/exports/share"
+      "/home/remco/.local/share/flatpak/exports/share"
+    ];
   };
 
 
@@ -31,7 +30,7 @@
 
     # Applications
     git
-    vim 
+    vim
     bitwarden-cli
 
     # Languages used for dev.
@@ -55,8 +54,8 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
   # virtualisation.docker.rootless = {
-    # enable = true;
-    # setSocketVariable = true;
+  # enable = true;
+  # setSocketVariable = true;
   # };
 
   programs.ssh.startAgent = true;

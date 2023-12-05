@@ -1,7 +1,7 @@
 { config, pkgs, theme, ... }:
 
 {
-    home.packages = [
-        pkgs.mattermost-desktop
-    ];
+  home.packages = [
+    pkgs.mattermost-desktop
+  ];
 }

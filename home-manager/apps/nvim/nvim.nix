@@ -1,6 +1,10 @@
 { config, pkgs, inputs, ... }:
 
 {
+  home.packages = [
+    pkgs.nixpkgs-fmt
+  ];
+
   programs.neovim = {
     enable = true;
 

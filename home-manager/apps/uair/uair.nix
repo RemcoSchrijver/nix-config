@@ -2,15 +2,15 @@
 { config, pkgs, theme, ... }:
 
 {
-    home.packages = [
-        pkgs.uair 
-        pkgs.yad
-    ];
+  home.packages = [
+    pkgs.uair
+    pkgs.yad
+  ];
 
 
-    xdg.configFile."uair".source = ./dotfiles;
+  xdg.configFile."uair".source = ./dotfiles;
 
-    home.shellAliases = {
-        uair = "uair | yad --progress --no-buttons --css=\"* { font-size: 80px; }\" --title=Timer --on-top --skip-taskbar";
-    };
+  home.shellAliases = {
+    uair = "uair | yad --progress --no-buttons --css=\"* { font-size: 80px; }\" --title=Timer --on-top --skip-taskbar";
+  };
 }

@@ -1,8 +1,8 @@
 { config, pkgs, theme, ... }:
 
 {
-    home.packages = [
-    ];
+  home.packages = [
+  ];
 }
 
 

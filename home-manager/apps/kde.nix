@@ -2,10 +2,10 @@
 { config, pkgs, theme, ... }:
 
 {
-    home.packages = [
-        pkgs.libsForQt5.kclock
-        pkgs.kup
-        pkgs.kaffeine
-    ];
+  home.packages = [
+    pkgs.libsForQt5.kclock
+    pkgs.kup
+    pkgs.kaffeine
+  ];
 }
 

@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
@@ -14,26 +15,29 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2698339c-7076-4965-8224-ca38c3116d7c";
+    {
+      device = "/dev/disk/by-uuid/2698339c-7076-4965-8224-ca38c3116d7c";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7361-5372";
+    {
+      device = "/dev/disk/by-uuid/7361-5372";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/b212867a-ef75-43b8-9ebf-510842a9ff7c"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/b212867a-ef75-43b8-9ebf-510842a9ff7c"; }];
 
   # Extra drives mounted
   fileSystems."/games" =
-    { device = "/dev/disk/by-label/Games";
+    {
+      device = "/dev/disk/by-label/Games";
     };
 
   fileSystems."/data" =
-    { device = "/dev/disk/by-label/Data";
+    {
+      device = "/dev/disk/by-label/Data";
     };
 
   # Display drivers
@@ -42,15 +46,15 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-  };  
-  
+  };
+
   # Load nvidia drivers
-  services.xserver.videoDrivers = ["nvidia"];
-	
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
-   
+
     # Nvidia powermanagement is experimental and may cause sleep to fail disable if need be.
     powerManagement.enable = false;
     # Nvidia finegrained powermangement only works on Turing or newer cards.

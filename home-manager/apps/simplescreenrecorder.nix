@@ -1,8 +1,8 @@
 { config, pkgs, theme, ... }:
 
 {
-    home.packages = [
-        pkgs.simplescreenrecorder
-    ];
+  home.packages = [
+    pkgs.simplescreenrecorder
+  ];
 }
 

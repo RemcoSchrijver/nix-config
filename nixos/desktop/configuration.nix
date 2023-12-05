@@ -2,15 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ 
-  inputs,
-  lib,
-  config, 
-  pkgs, 
-  ... 
+{ inputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -32,7 +32,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -97,10 +97,10 @@
   # Enable flatpak and set paths
   services.flatpak.enable = true;
   environment.sessionVariables = rec {
-      XDG_DATA_DIRS = [
-        "/var/lib/flatpak/exports/share"
-        "/home/remco/.local/share/flatpak/exports/share"
-      ];
+    XDG_DATA_DIRS = [
+      "/var/lib/flatpak/exports/share"
+      "/home/remco/.local/share/flatpak/exports/share"
+    ];
   };
 
   # Enable sound with pipewire.
@@ -150,7 +150,7 @@
 
     # Applications
     git
-    vim 
+    vim
     bitwarden-cli
 
     # Languages used for dev.
@@ -174,8 +174,8 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
   # virtualisation.docker.rootless = {
-    # enable = true;
-    # setSocketVariable = true;
+  # enable = true;
+  # setSocketVariable = true;
   # };
 
   programs.ssh.startAgent = true;

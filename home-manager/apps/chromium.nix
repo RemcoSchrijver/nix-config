@@ -1,7 +1,7 @@
 { config, pkgs, theme, ... }:
 
 {
-    programs.chromium = {
-        enable = true;
-    };
+  programs.chromium = {
+    enable = true;
+  };
 }
