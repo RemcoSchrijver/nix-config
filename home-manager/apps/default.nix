@@ -10,6 +10,7 @@
     ./direnv.nix
     ./mattermost.nix
     ./matrix.nix
+    ./media.nix
     ./spotify.nix
     ./simplescreenrecorder.nix
     ./qpwgraph.nix
