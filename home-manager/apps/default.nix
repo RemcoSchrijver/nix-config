@@ -20,5 +20,6 @@
     ./kde.nix
     ./zotero.nix
     ./game-dependencies.nix
+    ./remote-management.nix
   ];
 }

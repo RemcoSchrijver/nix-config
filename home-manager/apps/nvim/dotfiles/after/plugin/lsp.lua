@@ -39,6 +39,8 @@ require('mason-lspconfig').setup({
     },
 })
 
+lsp.setup_servers({'dartls', force = true})
+
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
