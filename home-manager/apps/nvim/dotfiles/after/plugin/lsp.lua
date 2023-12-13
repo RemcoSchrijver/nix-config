@@ -21,14 +21,13 @@ require('mason-lspconfig').setup({
     -- lua
     'lua_ls',
     -- markdown
-    'marksman',
-    'prosemd_lsp',
+    -- 'markdownlint',
     -- python
     'jedi_language_server',
     'pyright',
     'pyre',
     -- ruby
-    -- 'solargraph', fails for nixos right now, no clue and not doing dev in ruby right now so problem for later.
+    -- 'ruby_ls',
     -- SQL
     'sqlls',
     -- YAML
