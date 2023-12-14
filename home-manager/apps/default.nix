@@ -2,24 +2,21 @@
 
 {
   imports = [
-    ./nvim/nvim.nix
-    ./uair/uair.nix
-    ./firefox.nix
-    ./chromium.nix
-    ./git.nix
+    ./browsers.nix
+    ./communication.nix
     ./direnv.nix
-    ./mattermost.nix
-    ./matrix.nix
-    ./media.nix
-    ./spotify.nix
-    ./simplescreenrecorder.nix
-    ./qpwgraph.nix
-    ./nextcloud-client.nix
-    ./jetbrains.nix
-    ./zoom.nix
-    ./kde.nix
-    ./zotero.nix
+    ./editors.nix
     ./game-dependencies.nix
+    ./git.nix
+    ./jetbrains.nix
+    ./kde.nix
+    ./media.nix
+    ./nextcloud-client.nix
+    ./nvim/nvim.nix
+    ./qpwgraph.nix
     ./remote-management.nix
+    ./simplescreenrecorder.nix
+    ./uair/uair.nix
+    ./zotero.nix
   ];
 }

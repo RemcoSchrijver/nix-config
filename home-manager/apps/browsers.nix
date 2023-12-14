@@ -6,7 +6,7 @@
   # pkgs.libsForQt5.plasma-browser-integration 
   # ];
 
-
+  # Firefox
   programs.firefox = {
     enable = true;
     profiles.remco = {
@@ -20,6 +20,11 @@
         "signon.remeberSignons" = false;
       };
     };
+  };
+
+  # Chromium
+  programs.chromium = {
+    enable = true;
   };
 }
 

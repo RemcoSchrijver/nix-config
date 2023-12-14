@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    pkgs.mattermost-desktop
+    pkgs.drawio
   ];
 }
