@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./3d-printing
     ./browsers.nix
     ./communication.nix
     ./direnv.nix
