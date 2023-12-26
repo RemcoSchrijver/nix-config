@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./esp-programming.nix
     ./3d-printing
     ./browsers.nix
     ./communication.nix
