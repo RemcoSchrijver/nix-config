@@ -3,5 +3,6 @@
 {
   imports = [
     ./prusaslicer
+    ./cad.nix
   ];
 }
