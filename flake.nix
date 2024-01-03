@@ -25,7 +25,7 @@
     in
     {
       nixosConfigurations = {
-        dekstop = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
 
           modules = [ ./nixos/desktop/configuration.nix ];
