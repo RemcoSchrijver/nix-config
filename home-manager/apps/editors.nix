@@ -4,5 +4,6 @@
   home.packages = [
     pkgs.drawio
     pkgs.inkscape
+    pkgs.gimp
   ];
 }
