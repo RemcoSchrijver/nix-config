@@ -5,5 +5,6 @@
     pkgs.drawio
     pkgs.inkscape
     pkgs.gimp
+    pkgs.imagemagick
   ];
 }
