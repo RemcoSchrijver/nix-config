@@ -10,6 +10,9 @@
 
     # Zoom
     pkgs.zoom-us
+    
+    # Slack
+    pkgs.slack
   ];
 }
 
