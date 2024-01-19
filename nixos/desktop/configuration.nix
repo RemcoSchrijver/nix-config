@@ -17,7 +17,6 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      # })
     ];
     # Configure your nixpkgs instance
     config = {

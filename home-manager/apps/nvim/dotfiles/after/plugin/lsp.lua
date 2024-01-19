@@ -44,6 +44,12 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
+    sources = cmp.config.sources({
+        { name = 'path', priority = 1250 },
+        { name = 'cmp_fauxpilot', priority = 1000 },
+        { name = 'nvim_lsp', priority = 750 },
+        { name = 'luasnip', priority = 500 },
+    }),
     mapping = cmp.mapping.preset.insert({
         -- Confirm completion
         ['<Tab>'] = cmp.mapping.confirm({select = true}),

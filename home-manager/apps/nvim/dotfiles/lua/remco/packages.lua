@@ -50,9 +50,14 @@ local plugins = {
 
         {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
         {'neovim/nvim-lspconfig'},
+        {'L3MON4D3/LuaSnip'},        
+        {'hrsh7th/cmp-path'},
         {'hrsh7th/cmp-nvim-lsp'},
         {'hrsh7th/nvim-cmp'},
-        {'L3MON4D3/LuaSnip'},        
+        {
+           'nzlov/cmp-fauxpilot',
+           dependencies = 'hrsh7th/nvim-cmp',
+        }
     },
     {
         "folke/which-key.nvim",
