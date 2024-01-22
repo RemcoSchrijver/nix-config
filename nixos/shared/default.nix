@@ -13,6 +13,13 @@
     ];
   };
 
+  # Enable docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableNvidia = true;
+  # virtualisation.docker.rootless = {
+  # enable = true;
+  # setSocketVariable = true;
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -50,13 +57,6 @@
     libsForQt5.plasma-vault
   ];
 
-  # Enable docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableNvidia = true;
-  # virtualisation.docker.rootless = {
-  # enable = true;
-  # setSocketVariable = true;
-  # };
 
   programs.ssh.startAgent = true;
 
