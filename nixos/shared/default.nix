@@ -32,6 +32,7 @@
     gcc
     wget
     home-manager
+    wireguard-tools
     # Clipboard for x server and playing nice with neovim.
     xclip
 
