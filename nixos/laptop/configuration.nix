@@ -30,6 +30,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true; 
+  hardware.bluetooth.powerOnBoot = true; 
+
   # Nix config 
   nix = {
     # This will add each flake input as a registry
