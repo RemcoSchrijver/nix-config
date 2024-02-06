@@ -10,6 +10,7 @@
     ./editors.nix
     ./game-dependencies.nix
     ./git.nix
+    ./hyprland/hyprland.nix
     ./jetbrains.nix
     ./kde.nix
     ./media.nix

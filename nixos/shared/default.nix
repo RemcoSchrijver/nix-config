@@ -13,9 +13,16 @@
     ];
   };
 
+  programs.hyprland = {
+      enable = true;
+  };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # Enable docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableNvidia = true;
+  virtualisation.docker = {
+      enable = true;
+      enableNvidia = true;
+  };
   # virtualisation.docker.rootless = {
   # enable = true;
   # setSocketVariable = true;
