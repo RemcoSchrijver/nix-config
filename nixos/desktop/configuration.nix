@@ -12,6 +12,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../shared
     ];
 
   nixpkgs = {
@@ -136,37 +137,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # Utilities
-    tree-sitter
-    fd
-    ripgrep
-    unzip
-    gcc
-    wget
-    home-manager
-    # Clipboard for x server and playing nice with neovim.
-    xclip
-
-    # Applications
-    git
-    vim
-    bitwarden-cli
-
-    # Languages used for dev.
-    python3
-    openjdk
-    ruby
-
-    # Runtime dependencies paradox launcher
-    libnotify
-    nss
-    alsa-lib
-
-    # Probably a .net core 3.1 dependency
-    openssl_1_1
-
-    # Encrypt folders 
-    libsForQt5.plasma-vault
   ];
 
   # Enable docker
@@ -194,7 +164,9 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    passwordAuthentication = true;
+    settings = {
+      PasswordAuthentication = true;
+    };
   };
 
   # Open ports in the firewall.

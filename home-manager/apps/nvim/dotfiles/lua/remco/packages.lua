@@ -54,10 +54,11 @@ local plugins = {
         {'hrsh7th/cmp-path'},
         {'hrsh7th/cmp-nvim-lsp'},
         {'hrsh7th/nvim-cmp'},
+
         {
-           'nzlov/cmp-fauxpilot',
-           dependencies = 'hrsh7th/nvim-cmp',
-        }
+            'huggingface/llm.nvim',
+        },
+        
     },
     {
         "folke/which-key.nvim",

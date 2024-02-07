@@ -31,12 +31,14 @@ require('mason-lspconfig').setup({
     -- SQL
     'sqlls',
     -- YAML
-    'yamlls'
+    'yamlls',
     },
     handlers = {
         lsp.default_setup,
     },
 })
+
+
 
 lsp.setup_servers({'dartls', force = true})
 
@@ -46,7 +48,6 @@ local cmp_action = require('lsp-zero').cmp_action()
 cmp.setup({
     sources = cmp.config.sources({
         { name = 'path', priority = 1250 },
-        { name = 'cmp_fauxpilot', priority = 1000 },
         { name = 'nvim_lsp', priority = 750 },
         { name = 'luasnip', priority = 500 },
     }),

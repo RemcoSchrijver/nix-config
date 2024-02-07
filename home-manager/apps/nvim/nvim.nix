@@ -3,6 +3,7 @@
 {
   home.packages = [
     pkgs.nixpkgs-fmt
+    pkgs.cargo
   ];
 
   programs.neovim = {
