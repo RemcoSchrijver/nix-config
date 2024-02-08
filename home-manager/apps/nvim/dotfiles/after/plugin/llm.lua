@@ -34,7 +34,6 @@ llm.setup({
   context_window = 400, -- max number of tokens for the context window
   enable_suggestions_on_startup = true,
   enable_suggestions_on_files = {
-    "*.lua",
-    "*.dart",
+    "*.json",
   }, -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
 })
