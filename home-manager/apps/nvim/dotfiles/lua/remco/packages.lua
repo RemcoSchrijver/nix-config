@@ -79,6 +79,9 @@ local plugins = {
 			'nvim-lua/plenary.nvim'
         }
     },
+    {
+        'lervag/vimtex'
+    },
 }
 
 local opts = {}

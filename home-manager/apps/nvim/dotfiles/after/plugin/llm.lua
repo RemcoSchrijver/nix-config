@@ -20,8 +20,8 @@ llm.setup({
     -- suffix = "<fim_suffix>",
   -- },
   debounce_ms = 250,
-  accept_keymap = "<Tab>",
-  dismiss_keymap = "<S-Tab>",
+  accept_keymap = "<S-Tab>",
+  dismiss_keymap = "<C-Tab>",
   tls_skip_verify_insecure = false,
   -- llm-ls configuration, cf llm-ls section
   lsp = {
