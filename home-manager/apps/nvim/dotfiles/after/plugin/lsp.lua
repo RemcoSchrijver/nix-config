@@ -48,6 +48,7 @@ local cmp_action = require('lsp-zero').cmp_action()
 cmp.setup({
     sources = cmp.config.sources({
         { name = 'path', priority = 1250 },
+        { name = 'omni', priority = 1250 },
         { name = 'nvim_lsp', priority = 750 },
         { name = 'luasnip', priority = 500 },
     }),
