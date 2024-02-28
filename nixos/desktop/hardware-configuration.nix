@@ -48,6 +48,9 @@
     driSupport32Bit = true;
   };
 
+  # Enable wake-on-lan
+  networking.interfaces.enp14s0.wakeOnLan.enable = true;
+
   # Load nvidia drivers
   services.xserver.videoDrivers = [ "nvidia" ];
 
