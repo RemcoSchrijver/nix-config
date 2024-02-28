@@ -56,8 +56,8 @@
     modesetting.enable = true;
 
     # Nvidia powermanagement is experimental and may cause sleep to fail disable if need be.
-    powerManagement.enable = false;
-    # Nvidia finegrained powermangement only works on Turing or newer cards.
+    powerManagement.enable = true;
+    # Nvidia finegrained powermangement only works on Turing or newer cards, and offload enabled.
     powerManagement.finegrained = false;
 
     # Open source kernel module (seems to break steam games maybe?)
