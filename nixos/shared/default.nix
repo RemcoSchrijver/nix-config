@@ -14,14 +14,14 @@
   };
 
   programs.hyprland = {
-      enable = true;
+    enable = true;
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable docker
   virtualisation.docker = {
-      enable = true;
-      enableNvidia = true;
+    enable = true;
+    enableNvidia = true;
   };
   # virtualisation.docker.rootless = {
   # enable = true;
@@ -64,6 +64,19 @@
     # Encrypt folders 
     libsForQt5.plasma-vault
   ];
+
+  # Enable numlock on boot
+  systemd.services.numLockOnTty = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      # /run/current-system/sw/bin/setleds -D +num < "$tty";
+      ExecStart = lib.mkForce (pkgs.writeShellScript "numLockOnTty" ''
+        for tty in /dev/tty{1..6}; do
+            ${pkgs.kbd}/bin/setleds -D +num < "$tty";
+        done
+      '');
+    };
+  };
 
 
   programs.ssh.startAgent = true;
