@@ -2,12 +2,12 @@
 
 {
   imports = [
-    ./esp-programming.nix
     ./3d-printing
     ./browsers.nix
     ./communication.nix
     ./direnv.nix
     ./editors.nix
+    ./esp-programming.nix
     ./game-dependencies.nix
     ./git.nix
     ./hyprland/hyprland.nix
@@ -19,6 +19,7 @@
     ./qpwgraph.nix
     ./remote-management.nix
     ./simplescreenrecorder.nix
+    ./tmux/tmux.nix
     ./uair/uair.nix
     ./zotero.nix
   ];
