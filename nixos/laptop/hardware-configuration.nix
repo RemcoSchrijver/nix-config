@@ -2,7 +2,15 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
-
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec "$@"
+  '';
+in
 {
   imports =
     [
@@ -13,6 +21,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+  boot.kernelParams = [ "amdgpu.backlight=0" ];
 
   fileSystems."/" =
     {
@@ -39,16 +48,16 @@
   };
 
   # Load nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
 
     # Nvidia powermanagement is experimental and may cause sleep to fail disable if need be.
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     # Nvidia finegrained powermangement only works on Turing or newer cards.
-    powerManagement.finegrained = false;
+    powerManagement.finegrained = true;
 
     # Open source kernel module (seems to break steam games maybe?)
     open = false;
@@ -56,8 +65,19 @@
     # Enable Nvidia settings menu
     nvidiaSettings = true;
 
-    # Set package, sticking with stable for now.
+    # Set package, sticking with production for now.
     package = config.boot.kernelPackages.nvidiaPackages.production;
+
+    # Prime settings
+    prime = {
+      offload =
+        {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+      amdgpuBusId = "PCI:1:0:0";
+      nvidiaBusId = "PCI:6:0:0";
+    };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

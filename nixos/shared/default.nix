@@ -18,6 +18,13 @@
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # Bash aliases
+  programs.bash.shellAliases = {
+    nix-build-desktop = "sudo nixos-rebuild switch --flake ~/nix-config#desktop";
+    nix-build-laptop = "sudo nixos-rebuild switch --flake ~/nix-config#laptop";
+    hm-switch = "home-manager switch --flake ~/nix-config#remco@nixos";
+  };
+
   # Enable docker
   virtualisation.docker = {
     enable = true;
