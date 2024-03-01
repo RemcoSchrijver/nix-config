@@ -20,13 +20,11 @@ local plugins = {
 		},
 	},
 	{
-		"bluz71/vim-moonfly-colors",
+        -- Theme
+        "rose-pine/neovim",
+        name = "rose-pine",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			-- load the colorscheme here
-			vim.cmd([[colorscheme moonfly]])
-		end,
 	},
 	{
 		'nvim-treesitter/nvim-treesitter',
@@ -41,6 +39,24 @@ local plugins = {
 	{
 		'mbbill/undotree',
 	},
+    {
+        -- tmux plugins 
+        'christoomey/vim-tmux-navigator',
+          cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateDown",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+            "TmuxNavigatePrevious",
+          },
+          keys = {
+            { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+            { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+          },
+    },
 	{
 		'tpope/vim-fugitive',
 	},

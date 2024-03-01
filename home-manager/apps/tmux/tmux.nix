@@ -12,5 +12,8 @@
     keyMode = "vi";
   };
 
-  # xdg.configFile."tmux".source = ./dotfiles;
+  xdg.configFile."tmux" = { 
+      source = ./dotfiles;
+      recursive = true;
+  };
 }
