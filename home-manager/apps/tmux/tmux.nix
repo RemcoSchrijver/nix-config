@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
-
 {
+
   home.packages = [
   ];
 
@@ -12,8 +12,10 @@
     keyMode = "vi";
   };
 
-  xdg.configFile."tmux" = { 
-      source = ./dotfiles;
-      recursive = true;
+  xdg.configFile."tmux/tmux.conf" = {
+    source = ./dotfiles/tmux.conf;
+  };
+  xdg.configFile."tmux/plugins/tpm" = {
+    source = "${inputs.tmux-tpm}/";
   };
 }

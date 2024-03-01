@@ -64,8 +64,8 @@ cmp.setup({
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 
         -- Scroll through completions
-        ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     })
 })
 

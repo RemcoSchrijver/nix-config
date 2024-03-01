@@ -11,6 +11,12 @@
 
     # Hardware quirks
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # tmux plugin manager
+    tmux-tpm = {
+      url = "github:tmux-plugins/tpm/master";
+      flake = false;
+    };
   };
 
 
