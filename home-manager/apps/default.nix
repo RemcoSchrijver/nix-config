@@ -21,6 +21,7 @@
     ./simplescreenrecorder.nix
     ./tmux/tmux.nix
     ./uair/uair.nix
+    ./terminal.nix
     ./zotero.nix
   ];
 }

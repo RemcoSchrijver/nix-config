@@ -20,9 +20,15 @@
 
   # Bash aliases
   programs.bash.shellAliases = {
+    # Aliases for building nix configs
     nix-build-desktop = "sudo nixos-rebuild switch --flake ~/nix-config#desktop";
     nix-build-laptop = "sudo nixos-rebuild switch --flake ~/nix-config#laptop";
     hm-switch = "home-manager switch --flake ~/nix-config#remco@nixos";
+
+    # Terminal aliases
+    ":q" = "exit";
+    "gs" = "git status";
+    "ga" = "git add -A";
   };
 
   # Enable docker
