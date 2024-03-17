@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
 
@@ -42,6 +43,16 @@ require('mason-lspconfig').setup({
 
 lsp.setup_servers({'dartls', force = true})
 
+-- Settings for LSPs
+lspconfig.ltex.setup({
+    settings = {
+        additionalRules = {
+            enablePickyRules = true,
+        },
+    },
+})
+
+-- cmp setup
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
