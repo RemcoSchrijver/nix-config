@@ -41,6 +41,11 @@
   # setSocketVariable = true;
   # };
 
+  # udev rules for controllers
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", TAG+="uaccess"
+  '';
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
