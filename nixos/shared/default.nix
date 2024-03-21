@@ -81,7 +81,17 @@
 
     # Encrypt folders 
     libsForQt5.plasma-vault
+
+    # Theme
+    rose-pine-gtk-theme
+    rose-pine-icon-theme
+    rose-pine-cursor
   ];
+
+  # Setup theme
+  environment.variables.GTK_THEME = "rose-pine-dawn";
+  environment.variables.XCURSOR_THEME = "BreezeX-RosePineDawn-Linux";
+  environment.variables.XCURSOR_SIZE = "24";
 
   # Enable numlock on boot
   systemd.services.numLockOnTty = {
