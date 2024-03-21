@@ -1,4 +1,4 @@
 require("rose-pine").setup({
-    variant = "auto"
+    variant = "dawn"
 })
 vim.cmd("colorscheme rose-pine")

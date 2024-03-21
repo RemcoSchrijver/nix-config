@@ -2,7 +2,12 @@
 
 {
   home.packages = [
-    pkgs.wofi
+    pkgs.rofi
+    pkgs.pamixer
+    pkgs.brightnessctl
+    pkgs.wireplumber
+    pkgs.dunst
+#    pkgs.waybar
   ];
 
   wayland.windowManager.hyprland = {

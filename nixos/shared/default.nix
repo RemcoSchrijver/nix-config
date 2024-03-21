@@ -16,6 +16,20 @@
   programs.hyprland = {
     enable = true;
   };
+
+
+  # Enable screen sharing on wayland
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+      gtkUsePortal = true;
+    };
+  };
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Bash aliases
@@ -86,6 +100,9 @@
     rose-pine-gtk-theme
     rose-pine-icon-theme
     rose-pine-cursor
+
+    # XWayland translation layer because electron apps are not playing nice
+    xwayland
   ];
 
   # Setup theme

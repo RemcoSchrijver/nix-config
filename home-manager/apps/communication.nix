@@ -13,6 +13,9 @@
 
     # Slack
     pkgs.slack
+
+    # Whatsapp
+    pkgs.whatsapp-for-linux
   ];
 }
 
