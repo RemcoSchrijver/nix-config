@@ -1,13 +1,14 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.packages = [
-    pkgs.rofi
-    pkgs.pamixer
-    pkgs.brightnessctl
-    pkgs.wireplumber
-    pkgs.dunst
-#    pkgs.waybar
+  home.packages = with pkgs; [
+    rofi
+    pamixer
+    brightnessctl
+    wireplumber
+    dunst
+    networkmanagerapplet
+    waybar
   ];
 
   wayland.windowManager.hyprland = {
