@@ -12,10 +12,12 @@
     keyMode = "vi";
   };
 
-  xdg.configFile."tmux/tmux.conf" = {
-    source = ./dotfiles/tmux.conf;
-  };
-  xdg.configFile."tmux/plugins/tpm" = {
-    source = "${inputs.tmux-tpm}/";
+  xdg.configFile = {
+    "tmux/tmux.conf" = {
+      source = ./dotfiles/tmux.conf;
+    };
+    "tmux/plugins/tpm" = {
+      source = "${inputs.tmux-tpm}/";
+    };
   };
 }

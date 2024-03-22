@@ -5,12 +5,12 @@
     ./3d-printing
     ./browsers.nix
     ./communication.nix
+    ./compositor
     ./direnv.nix
     ./editors.nix
     ./esp-programming.nix
     ./game-dependencies.nix
     ./git.nix
-    ./hyprland/hyprland.nix
     ./jetbrains.nix
     ./kde.nix
     ./media.nix

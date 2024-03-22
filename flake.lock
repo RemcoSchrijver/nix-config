@@ -58,7 +58,8 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "tmux-tpm": "tmux-tpm"
+        "tmux-tpm": "tmux-tpm",
+        "waybar-rose-pine": "waybar-rose-pine"
       }
     },
     "tmux-tpm": {
@@ -75,6 +76,22 @@
         "owner": "tmux-plugins",
         "ref": "master",
         "repo": "tpm",
+        "type": "github"
+      }
+    },
+    "waybar-rose-pine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1692757972,
+        "narHash": "sha256-xrxceul8HRySG1cBg6uF6aYE52SJ/jCeICTh2Zj0iHo=",
+        "owner": "rose-pine",
+        "repo": "waybar",
+        "rev": "1b118bd60d1c5778dc8a82b919069eeb8a834604",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rose-pine",
+        "repo": "waybar",
         "type": "github"
       }
     }

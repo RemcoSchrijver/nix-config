@@ -8,7 +8,6 @@
     wireplumber
     dunst
     networkmanagerapplet
-    waybar
   ];
 
   wayland.windowManager.hyprland = {
@@ -16,5 +15,7 @@
     # Disables warning that there is not config, we import the config from our dotfiles.
     extraConfig = " ";
   };
-  xdg.configFile."hypr".source = ./dotfiles;
+  xdg.configFile."hypr/hyprland.conf" = {
+    source = ./dotfiles/hyprland.conf;
+  };
 }

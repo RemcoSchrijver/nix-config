@@ -17,6 +17,12 @@
       url = "github:tmux-plugins/tpm/master";
       flake = false;
     };
+
+    # Rosé Pine for Waybar
+    waybar-rose-pine = {
+      url = "github:rose-pine/waybar";
+      flake = false;
+    };
   };
 
 
