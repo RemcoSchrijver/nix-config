@@ -32,6 +32,9 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # Fix neovim plugins for Mason not working
+  programs.nix-ld.enable = true;
+
   # Bash aliases
   programs.bash.shellAliases = {
     # Aliases for building nix configs
