@@ -8,6 +8,7 @@
     wireplumber
     dunst
     networkmanagerapplet
+    libsForQt5.polkit-kde-agent
   ];
 
   wayland.windowManager.hyprland = {
