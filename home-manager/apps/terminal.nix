@@ -12,7 +12,12 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [ "${pkgs.alacritty-theme}/rose-pine-dawn.toml"];
+      import = [
+        "${pkgs.alacritty-theme}/rose-pine-dawn.toml"
+      ];
+      window = {
+        opacity = 0.7;
+      };
     };
   };
 }

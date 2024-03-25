@@ -118,15 +118,15 @@
   environment.variables.XCURSOR_SIZE = "24";
 
   # Fonts
-  fonts.packages  = with pkgs; [
-	noto-fonts
-	noto-fonts-cjk
-	noto-fonts-emoji
-	liberation_ttf
-	fira-code
-	fira-code-symbols
-	nerdfonts
-	font-awesome
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    nerdfonts
+    font-awesome
   ];
 
   # Enable numlock on boot
@@ -142,7 +142,7 @@
       '');
     };
   };
-  
+
 
   programs.ssh.startAgent = true;
 

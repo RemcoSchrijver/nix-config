@@ -10,6 +10,7 @@
     networkmanagerapplet
     libsForQt5.polkit-kde-agent
     libsForQt5.kwallet
+    hyprpaper
   ];
 
   wayland.windowManager.hyprland = {
@@ -17,7 +18,11 @@
     # Disables warning that there is not config, we import the config from our dotfiles.
     extraConfig = " ";
   };
-  xdg.configFile."hypr/hyprland.conf" = {
-    source = ./dotfiles/hyprland.conf;
+
+  # Move config
+  xdg.configFile = {
+    "hypr/hyprland.conf".source = ./dotfiles/hyprland.conf;
+    "hypr/hyprpaper.conf".source = ./dotfiles/hyprpaper.conf;
+    "hypr/oceandrone1.jpg".source = ./dotfiles/oceandrone1.jpg;
   };
 }

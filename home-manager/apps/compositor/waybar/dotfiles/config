@@ -1,8 +1,8 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
-	"modules-center": ["hyprland/workspaces", "clock"],
-	"modules-right": ["custom/wallpaper","backlight","pulseaudio", "battery","custom/power"],
+	"modules-left": ["custom/launcher","cpu", "custom/gpu","memory","custom/media","tray", "privacy"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["custom/wallpaper","backlight","pulseaudio", "clock", "battery","custom/power"],
 	
 	"pulseaudio": {
 		"tooltip": false,
@@ -57,24 +57,30 @@
         "format-icons": ["", "", "", "", ""]
     },
 	"tray":{
-		"icon-size":18,
+		"icon-size": 18,
 		"spacing": 10
 	},
     "clock": {
-        "interval": 60,
+        "interval": 1,
         "format": "{:%H:%M - %Y-%m-%d}"
     },
     "cpu": {
         "interval": 1,
-        "format": " {}%",
+        "format": " {:0.1f}%",
         "max-length": 10
     },
     "memory": {
         "interval": 1,
-        "format": " {}%",
+        "format": " {used:0.1f} GiB",
         "max-length": 10
     },
-    "custom/media": {
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "format": " {}%",
+        "return-type": "",
+        "interval": 1
+    },
+    "custom/spotify": {
         "interval": 30,
         "format": "{icon} {}",
         "return-type": "json",
@@ -99,5 +105,27 @@
     "custom/wallpaper":{
         "format":" ",
         //"on-click": "bash ~/.config/system_scripts/pkill_bc"
-    }
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+          ]
+    },
 }
