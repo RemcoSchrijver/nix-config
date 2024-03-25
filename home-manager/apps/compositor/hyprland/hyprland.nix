@@ -9,6 +9,7 @@
     dunst
     networkmanagerapplet
     libsForQt5.polkit-kde-agent
+    libsForQt5.kwallet
   ];
 
   wayland.windowManager.hyprland = {

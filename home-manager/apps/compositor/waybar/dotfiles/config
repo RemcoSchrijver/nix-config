@@ -1,196 +1,103 @@
-// Top Bar Config
 {
-    // Main Config
-    "name": "top_bar",
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 36, // Waybar height (to be removed for auto height)
-    "spacing": 4, // Gaps between modules (4px)
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["clock#time", "custom/separator", "clock#week", "custom/separator_dot", "clock#month", "custom/separator", "clock#calendar"],
-    "modules-right": [ "bluetooth", "network", "group/misc", "custom/logout_menu" ],
+	"layer": "top",
+	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
+	"modules-center": ["hyprland/workspaces", "clock"],
+	"modules-right": ["custom/wallpaper","backlight","pulseaudio", "battery","custom/power"],
+	
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "{icon} {volume}%",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
 
-    // Modules Config
     "hyprland/workspaces": {
-        "on-click": "activate",  
         "format": "{icon}",
         "format-icons": {
-            // "1": "󰲠",
-            // "2": "󰲢",
-            // "3": "󰲤",
-            // "4": "󰲦",
-            // "5": "󰲨",
-            // "6": "󰲪",
-            // "7": "󰲬",
-            // "8": "󰲮",
-            // "9": "󰲰",
-            // "10": "󰿬",
-
-            "active": "",
-            "default": "",
-            "empty": ""
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6",
+          "7": "7",
+          "8": "8",
+          "9": "9",
+          "default": "1"
         },
-        "persistent_workspaces": {
-            "*": 10,  
+        "on-click": "activate"
+    },
+
+	"network": {
+		"tooltip": false,
+		"format-wifi": "  {essid}",
+		"format-ethernet": ""
+	},
+	"backlight": {
+		"tooltip": false,
+		"format": " {}%",
+		"interval":1,
+        "on-scroll-up": "light -A 5",
+		"on-scroll-down": "light -U 5"
+	},
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
         },
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
     },
-
-    "hyprland/submap": {
-        "format": "<span color='#a6da95'>Mode:</span> {}",
-        "tooltip": false,
-    },
-
-    "clock#time": {
-        "format": "{:%I:%M %p %Ez}",
-        // "locale": "en_US.UTF-8",
-        // "timezones": [ "Europe/Kyiv", "America/New_York" ],
-    },
-
-    "custom/separator": {
-        "format": "|",  
-    },
-
-    "custom/separator_dot": {
-        "format": "•",  
-    },
-
-    "clock#week": {
-        "format": "{:%a}",
-    },
-
-    "clock#month": {
-        "format": "{:%h}",
-    },
-
-    "clock#calendar": {
-        "format": "{:%F}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "actions": {
-            "on-click-right": "mode",
-        },
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "on-click-right": "mode",
-            "format": {
-                "months":     "<span color='#f4dbd6'><b>{}</b></span>",
-                "days":       "<span color='#cad3f5'><b>{}</b></span>",
-                "weeks":      "<span color='#c6a0f6'><b>W{}</b></span>",
-                "weekdays":   "<span color='#a6da95'><b>{}</b></span>",
-                "today":      "<span color='#8bd5ca'><b><u>{}</u></b></span>"
-            }
-        },
-    },
-
+	"tray":{
+		"icon-size":18,
+		"spacing": 10
+	},
     "clock": {
-        "format": "{:%I:%M %p %Ez | %a • %h | %F}",
-        "format-alt": "{:%I:%M %p}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        // "locale": "en_US.UTF-8",
-        // "timezones": [ "Europe/Kyiv", "America/New_York" ],
-        "actions": {
-            "on-click-right": "mode",
-        },
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "on-click-right": "mode",
-            "format": {
-                "months":     "<span color='#f4dbd6'><b>{}</b></span>",
-                "days":       "<span color='#cad3f5'><b>{}</b></span>",
-                "weeks":      "<span color='#c6a0f6'><b>W{}</b></span>",
-                "weekdays":   "<span color='#a6da95'><b>{}</b></span>",
-                "today":      "<span color='#8bd5ca'><b><u>{}</u></b></span>"
-            }
-        },
+        "interval": 60,
+        "format": "{:%H:%M - %Y-%m-%d}"
     },
-
+    "cpu": {
+        "interval": 1,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {}%",
+        "max-length": 10
+    },
     "custom/media": {
-        "format": "{icon}󰎈",
-        "restart-interval": 2,
+        "interval": 30,
+        "format": "{icon} {}",
         "return-type": "json",
+        "max-length": 20,
         "format-icons": {
-            "Playing": "",
-            "Paused": "",
+            "spotify": " ",
+            "default": " "
         },
-        "max-length": 35,
-        "exec": "bash -c fetch_music_player_data",
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl next",
-        "on-click-middle": "playerctl prev",
-        "on-scroll-up": "playerctl volume 0.05-",
-        "on-scroll-down": "playerctl volume 0.05+",
-        "smooth-scrolling-threshold": "0.1",
+        "escape": true,
+        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause"
     },
-
-    "group/misc": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/recording",
-            "custom/geo",
-            "custom/media",
-            "custom/dunst",
-            "custom/night_mode",
-            "custom/airplane_mode",
-            "idle_inhibitor",
-        ],
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi"
     },
-
-    "custom/recording": {
-        "interval": 1,
-        "exec-if": "pgrep wf-recorder",
-        "exec": "bash -c check_recording",
-        "return-type": "json",
+    "custom/power":{
+        "format": " ",
+        "on-click": "bash ~/.config/rofi/leave/leave.sh",
     },
-
-    "custom/geo": {
-        "interval": 1,
-        "exec-if": "pgrep geoclue",
-        "exec": "bash -c check_geo_module",
-        "return-type": "json",
-    },
-
-    "custom/airplane_mode": {
-        "return-type": "json",
-        "interval": 1,
-        "exec": "bash -c check_airplane_mode",
-        "on-click": "bash -c airplane_mode_toggle",
-    },
-
-    "custom/night_mode": {
-        "return-type": "json",
-        "interval": 1,
-        "exec": "bash -c check_night_mode",
-        "on-click": "bash -c night_mode_toggle",
-    },
-    
-    "custom/dunst": {
-        "return-type": "json",
-        "exec": "bash -c dunst_pause",
-        "on-click": "dunstctl set-paused toggle",
-        "restart-interval": 1,
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "󰛐",
-            "deactivated": "󰛑"
-        },
-        "tooltip-format-activated": "idle-inhibitor <span color='#a6da95'>on</span>",
-        "tooltip-format-deactivated": "idle-inhibitor <span color='#ee99a0'>off</span>",
-        "start-activated": true,
-    },
-
-    "custom/logout_menu": {
-        "return-type": "json",
-        "exec": "echo '{ \"text\":\"󰐥\", \"tooltip\": \"logout menu\" }'",
-        "interval": "once",
-        "on-click": "bash -c wlogout_uniqe",
-    },
- 
+    "custom/wallpaper":{
+        "format":" ",
+        //"on-click": "bash ~/.config/system_scripts/pkill_bc"
+    }
 }

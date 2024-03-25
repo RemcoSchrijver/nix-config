@@ -67,21 +67,25 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Utilities
-    tree-sitter
     fd
     ripgrep
     unzip
     gcc
     wget
     home-manager
-    wireguard-tools
-    # Clipboard for x server and playing nice with neovim.
-    xclip
+    dconf
+    xdg-desktop-portal-hyprland
+    wl-clipboard
+    wayland-utils
+    wayland-protocols
+    wlroots
 
     # Applications
     git
     vim
     bitwarden-cli
+    wireguard-tools
+    tree-sitter
 
     # Languages used for dev.
     python3
@@ -113,7 +117,20 @@
   environment.variables.XCURSOR_THEME = "BreezeX-RosePineDawn-Linux";
   environment.variables.XCURSOR_SIZE = "24";
 
+  # Fonts
+  fonts.packages  = with pkgs; [
+	noto-fonts
+	noto-fonts-cjk
+	noto-fonts-emoji
+	liberation_ttf
+	fira-code
+	fira-code-symbols
+	nerdfonts
+	font-awesome
+  ];
+
   # Enable numlock on boot
+  # TODO this seems to only enable the light...
   systemd.services.numLockOnTty = {
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
@@ -125,10 +142,17 @@
       '');
     };
   };
-
+  
 
   programs.ssh.startAgent = true;
 
   programs.partition-manager.enable = true;
+
+  networking.networkmanager = {
+    enable = true;
+  };
+
+  programs.nm-applet.enable = true;
+  security.polkit.enable = true;
 
 }
