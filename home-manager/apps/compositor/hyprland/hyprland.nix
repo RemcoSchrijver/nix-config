@@ -11,7 +11,12 @@
     libsForQt5.polkit-kde-agent
     libsForQt5.kwallet
     hyprpaper
+    hyprshot
   ];
+
+  home.sessionVariables = {
+      HYPRSHOT_DIR = "~/Pictures/Screenshots/";
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;

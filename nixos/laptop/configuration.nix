@@ -12,6 +12,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # ./nvidia.nix
       ../shared
     ];
   nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
@@ -20,9 +21,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.firewall.enable = true;
-
   networking.hostName = "nixos"; # Define your hostname.
+
+  hardware.nvidia.prime.amdgpuBusId = "PCI:6:0:0";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -115,10 +116,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-  ];
+  # Packages installed for only the laptop.
+  environment.systemPackages = with pkgs; [ ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -133,6 +132,8 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  networking.firewall.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -146,5 +147,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }

@@ -47,39 +47,6 @@ in
     driSupport32Bit = true;
   };
 
-  # Load nvidia drivers
-  # services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    # Modesetting is required.
-    modesetting.enable = true;
-
-    # Nvidia powermanagement is experimental and may cause sleep to fail disable if need be.
-    powerManagement.enable = true;
-    # Nvidia finegrained powermangement only works on Turing or newer cards.
-    powerManagement.finegrained = true;
-
-    # Open source kernel module (seems to break steam games maybe?)
-    open = false;
-
-    # Enable Nvidia settings menu
-    nvidiaSettings = true;
-
-    # Set package, sticking with production for now.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
-
-    # Prime settings
-    prime = {
-      offload =
-        {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-      amdgpuBusId = "PCI:1:0:0";
-      nvidiaBusId = "PCI:6:0:0";
-    };
-  };
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

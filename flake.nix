@@ -48,7 +48,7 @@
 
           modules = [
             ./nixos/laptop/configuration.nix
-            #            nixos-hardware.nixosModules.lenovo-legion-16ach6h
+            nixos-hardware.nixosModules.lenovo-legion-16ach6h-hybrid
           ];
         };
       };
