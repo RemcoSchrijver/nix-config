@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu", "custom/gpu","memory","custom/media","tray", "privacy"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["custom/wallpaper","backlight","pulseaudio", "clock", "battery","custom/power"],
+	"modules-right": ["backlight", "pulseaudio", "clock", "battery","custom/power"],
 	
 	"pulseaudio": {
 		"tooltip": false,

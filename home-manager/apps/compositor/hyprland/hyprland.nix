@@ -10,6 +10,7 @@
     networkmanagerapplet
     libsForQt5.polkit-kde-agent
     libsForQt5.kwallet
+    libsForQt5.kwallet-pam
     hyprpaper
     hyprshot
   ];
