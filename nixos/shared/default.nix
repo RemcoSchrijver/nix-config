@@ -110,6 +110,9 @@
 
     # XWayland translation layer because electron apps are not playing nice
     xwayland
+
+    # Making kdePacakages apps work
+    kdePackages.qtwayland
   ];
 
   # Setup theme
