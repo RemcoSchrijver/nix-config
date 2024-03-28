@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu", "custom/gpu","memory","custom/media","tray", "privacy"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["backlight", "pulseaudio", "clock", "battery","custom/power"],
+	"modules-right": ["backlight","pulseaudio", "clock", "battery","custom/power"],
 	
 	"pulseaudio": {
 		"tooltip": false,
@@ -40,7 +40,7 @@
 	"backlight": {
 		"tooltip": false,
 		"format": " {}%",
-		"interval":1,
+		"interval":2,
         "on-scroll-up": "light -A 5",
 		"on-scroll-down": "light -U 5"
 	},
@@ -100,7 +100,7 @@
     },
     "custom/power":{
         "format": " ",
-        "on-click": "bash ~/.config/rofi/leave/leave.sh",
+        "on-click": "hyprlock",
     },
     "custom/wallpaper":{
         "format":" ",

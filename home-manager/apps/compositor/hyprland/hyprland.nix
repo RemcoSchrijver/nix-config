@@ -13,6 +13,7 @@
     libsForQt5.kwallet-pam
     hyprpaper
     hyprshot
+    hyprlock
   ];
 
   home.sessionVariables = {
@@ -30,5 +31,6 @@
     "hypr/hyprland.conf".source = ./dotfiles/hyprland.conf;
     "hypr/hyprpaper.conf".source = ./dotfiles/hyprpaper.conf;
     "hypr/oceandrone1.jpg".source = ./dotfiles/oceandrone1.jpg;
+    "hypr/oceandrone1.png".source = ./dotfiles/oceandrone1.png;
   };
 }
