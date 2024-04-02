@@ -40,6 +40,7 @@
     # Aliases for building nix configs
     nix-build-desktop = "sudo nixos-rebuild switch --flake ~/nix-config#desktop";
     nix-build-laptop = "sudo nixos-rebuild switch --flake ~/nix-config#laptop";
+    nix-build-thinkpad = "sudo nixos-rebuild switch --flake ~/nix-config#thinkpad";
     hm-switch = "home-manager switch --flake ~/nix-config#remco@nixos";
 
     # Terminal aliases
@@ -51,7 +52,8 @@
   # Enable docker
   virtualisation.docker = {
     enable = true;
-    enableNvidia = true;
+    # TODO make nvidia an option, not doing that rn.
+    #enableNvidia = true;
   };
   # virtualisation.docker.rootless = {
   # enable = true;

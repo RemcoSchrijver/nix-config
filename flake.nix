@@ -51,6 +51,14 @@
             nixos-hardware.nixosModules.lenovo-legion-16ach6h-hybrid
           ];
         };
+	thinkpad = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+
+          modules = [
+            ./nixos/thinkpad/configuration.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
+          ];
+        };
       };
 
       homeConfigurations = {
