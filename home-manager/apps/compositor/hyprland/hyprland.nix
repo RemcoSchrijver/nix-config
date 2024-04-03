@@ -26,7 +26,7 @@
         source = ./configs/exec.conf
         source = ./configs/settings.conf
         source = ./configs/windowrules.conf
-        source = ./configs/keymaps.conf
+        source = ./configs/keybinds.conf
     '';
   };
 
