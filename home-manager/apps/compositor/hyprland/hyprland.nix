@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    tofi
     pamixer
     brightnessctl
     wireplumber
