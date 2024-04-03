@@ -17,20 +17,22 @@
   ];
 
   home.sessionVariables = {
-      HYPRSHOT_DIR = "Pictures/Screenshots/";
+    HYPRSHOT_DIR = "Pictures/Screenshots/";
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # Disables warning that there is not config, we import the config from our dotfiles.
-    extraConfig = " ";
+    systemd.enable = true;
+    extraConfig = '' 
+        source = ./configs/exec.conf
+        source = ./configs/settings.conf
+        source = ./configs/windowrules.conf
+        source = ./configs/keymaps.conf
+    '';
   };
 
   # Move config
   xdg.configFile = {
-    "hypr/hyprland.conf".source = ./dotfiles/hyprland.conf;
-    "hypr/hyprpaper.conf".source = ./dotfiles/hyprpaper.conf;
-    "hypr/oceandrone1.jpg".source = ./dotfiles/oceandrone1.jpg;
-    "hypr/oceandrone1.png".source = ./dotfiles/oceandrone1.png;
+    "hypr/configs".source = ./dotfiles;
   };
 }
