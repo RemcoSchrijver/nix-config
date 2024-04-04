@@ -1,5 +1,5 @@
 {
-  description = "System flake for desktop pc";
+  description = "System flake for my NixOS and home-manager configs";
 
   inputs = {
     # Nixpkgs
@@ -38,40 +38,69 @@
     in
     {
       nixosConfigurations = {
+
+        # Build for my desktop.
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
 
-          modules = [ ./nixos/desktop/configuration.nix ];
+          modules = [
+            ./nixos/desktop/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+              home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+            }
+          ];
         };
+
+        # Build for my gaming laptop.
         laptop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
 
           modules = [
             ./nixos/laptop/configuration.nix
             nixos-hardware.nixosModules.lenovo-legion-16ach6h-hybrid
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+              home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+            }
           ];
         };
-	thinkpad = nixpkgs.lib.nixosSystem {
+
+        # Build for my thinkpad. 
+        thinkpad = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
 
           modules = [
             ./nixos/thinkpad/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+              home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+            }
           ];
         };
       };
 
-      homeConfigurations = {
-        "remco@nixos" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-          extraSpecialArgs = {
-            inherit inputs outputs;
-            nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
-          };
-
-          modules = [ ./home-manager/home.nix ];
-        };
-      };
+      # homeConfigurations = {
+      #   "remco@nixos" = home-manager.lib.homeManagerConfiguration {
+      #     pkgs = nixpkgs.legacyPackages.${system};
+      #
+      #     extraSpecialArgs = {
+      #       inherit inputs outputs;
+      #       nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+      #     };
+      #
+      #     modules = [ ./home-manager/home.nix ];
+      #   };
+      # };
     };
 }

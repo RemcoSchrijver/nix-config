@@ -8,22 +8,14 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
     ./apps
     ./services
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [ ];
 
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
@@ -34,10 +26,6 @@
     username = "remco";
     homeDirectory = "/home/remco";
   };
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
 
   # Enable XDG packages so we can use existing dotfiles.
   xdg.enable = true;

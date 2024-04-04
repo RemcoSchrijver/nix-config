@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ osConfig, pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -10,7 +10,6 @@
     libsForQt5.polkit-kde-agent
     libsForQt5.kwallet
     libsForQt5.kwallet-pam
-    hyprpaper
     hyprshot
     hyprlock
   ];
@@ -27,10 +26,12 @@
         source = ./configs/settings.conf
         source = ./configs/windowrules.conf
         source = ./configs/keybinds.conf
+        ${(if osConfig.networking.hostName == "rs-thinkpad-nixos" then "source = ./configs/hosts/thinkpad.conf" else "")}
     '';
+
   };
 
-  # Move config
+  # Link config files
   xdg.configFile = {
     "hypr/configs".source = ./dotfiles;
   };
