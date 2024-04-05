@@ -110,9 +110,6 @@
     rose-pine-icon-theme
     rose-pine-cursor
 
-    # XWayland translation layer because electron apps are not playing nice
-    xwayland
-
     # Making kdePacakages apps work
     kdePackages.qtwayland
   ];
