@@ -21,7 +21,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "rs-laptop-nixos"; # Define your hostname.
 
   hardware.nvidia.prime.amdgpuBusId = "PCI:6:0:0";
 
