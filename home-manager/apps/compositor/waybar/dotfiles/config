@@ -1,9 +1,8 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher","cpu", "custom/gpu","memory","custom/media","tray", "privacy"],
+	"modules-left": ["custom/launcher", "custom/media","tray", "privacy"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["backlight","pulseaudio", "clock", "battery","custom/power"],
-	
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
@@ -32,11 +31,6 @@
         "on-click": "activate"
     },
 
-	"network": {
-		"tooltip": false,
-		"format-wifi": "  {essid}",
-		"format-ethernet": ""
-	},
 	"backlight": {
 		"tooltip": false,
 		"format": " {}%",
@@ -64,35 +58,6 @@
         "interval": 1,
         "format": "{:%H:%M - %Y-%m-%d}"
     },
-    "cpu": {
-        "interval": 1,
-        "format": " {:0.1f}%",
-        "max-length": 10
-    },
-    "memory": {
-        "interval": 1,
-        "format": " {used:0.1f} GiB",
-        "max-length": 10
-    },
-    "custom/gpu": {
-        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-        "format": " {}%",
-        "return-type": "",
-        "interval": 1
-    },
-    "custom/spotify": {
-        "interval": 30,
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 20,
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
-        "escape": true,
-        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
-        "on-click": "playerctl play-pause"
-    },
     "custom/launcher":{
         "format": " ",
         "on-click": "rofi -show drun",
@@ -101,10 +66,6 @@
     "custom/power":{
         "format": " ",
         "on-click": "hyprlock",
-    },
-    "custom/wallpaper":{
-        "format":" ",
-        //"on-click": "bash ~/.config/system_scripts/pkill_bc"
     },
     "privacy": {
         "icon-spacing": 4,

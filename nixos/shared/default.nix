@@ -46,7 +46,7 @@
     # Terminal aliases
     ":q" = "exit";
     "gs" = "git status";
-    "ga" = "git add -A";
+    "ga" = "git fetch && git add -A";
   };
 
   # Enable docker

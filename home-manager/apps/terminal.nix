@@ -16,7 +16,7 @@
         "${pkgs.alacritty-theme}/rose-pine-dawn.toml"
       ];
       window = {
-        opacity = 0.77;
+        opacity = 0.85;
       };
     };
   };
