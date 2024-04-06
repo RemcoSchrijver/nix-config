@@ -17,6 +17,13 @@
     enable = true;
   };
 
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 60d";
+  };
+
 
   # Enable screen sharing on wayland
   xdg = {
