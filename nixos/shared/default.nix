@@ -72,6 +72,7 @@
     fd
     ripgrep
     unzip
+    usbutils
     gcc
     wget
     home-manager
