@@ -2,9 +2,9 @@
 
 {
   # Extra packages necessary for firefox
-  # home.packages = [ 
-  # pkgs.libsForQt5.plasma-browser-integration 
-  # ];
+  home.packages = with pkgs; [
+    firefoxpwa
+  ];
 
   # Firefox
   programs.firefox = {
@@ -20,6 +20,9 @@
         "signon.remeberSignons" = false;
       };
     };
+    nativeMessagingHosts = [
+      pkgs.firefoxpwa
+    ];
   };
 
   # Chromium

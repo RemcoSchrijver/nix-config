@@ -60,8 +60,8 @@
     },
     "custom/launcher":{
         "format": " ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
+        "on-click": "tofi-drun | xargs hyprctl dispatch exec -- ",
+        "on-click-right": "killall tofi"
     },
     "custom/power":{
         "format": " ",
