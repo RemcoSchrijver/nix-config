@@ -157,8 +157,13 @@
 
   programs.partition-manager.enable = true;
 
-  networking.networkmanager = {
-    enable = true;
+  networking = {
+    wireguard = {
+      enable = true;
+    };
+    networkmanager = {
+      enable = true;
+    };
   };
 
   programs.nm-applet.enable = true;
