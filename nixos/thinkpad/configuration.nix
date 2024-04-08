@@ -31,6 +31,12 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  # Enable fingerprint reader
+  services.fprintd.enable = true;
+
+  # fwupd for updating firmware of internals
+  services.fwupd.enable = true;
+
   # Nix config 
   nix = {
     # This will add each flake input as a registry
@@ -65,13 +71,13 @@
       PLATFORM_PROFILE_ON_BAT = "low-power";
 
       CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
+      CPU_BOOST_ON_BAT = 1;
 
       CPU_HWP_DYN_BOOST_ON_AC = 1;
-      CPU_HWP_DYN_BOOST_ON_BAT = 0;
+      CPU_HWP_DYN_BOOST_ON_BAT = 1;
 
       #Optional helps save long term battery health
-      START_CHARGE_THRESH_BAT0 = 60; # 60 and below it starts to charge
+      START_CHARGE_THRESH_BAT0 = 70; # 60 and below it starts to charge
       STOP_CHARGE_THRESH_BAT0 = 90; # 90 and above it stops charging
 
     };
