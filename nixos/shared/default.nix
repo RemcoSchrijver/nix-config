@@ -75,19 +75,20 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Utilities
+    dconf
     fd
+    gcc
+    home-manager
     ripgrep
+    smartmontools
     unzip
     usbutils
-    gcc
-    wget
-    home-manager
-    dconf
-    xdg-desktop-portal-hyprland
-    wl-clipboard
-    wayland-utils
     wayland-protocols
+    wayland-utils
+    wget
     wlroots
+    wl-clipboard
+    xdg-desktop-portal-hyprland
 
     # Applications
     git
