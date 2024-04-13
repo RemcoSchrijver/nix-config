@@ -2,8 +2,14 @@
 , lib
 , config
 , pkgs
+, specialArgs
 , ...
 }: {
+  imports = 
+    [
+      (if specialArgs.hasUI then ./ui.nix else "")
+    ];
+  
   # Enable flatpak and set paths
   services.flatpak.enable = true;
   environment.sessionVariables = rec {
@@ -13,30 +19,12 @@
     ];
   };
 
-  programs.hyprland = {
-    enable = true;
-  };
-
   # Garbage collection
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 60d";
   };
-
-
-  # Enable screen sharing on wayland
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
-    };
-  };
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Fix neovim plugins for Mason not working
   programs.nix-ld.enable = true;
@@ -83,12 +71,6 @@
     smartmontools
     unzip
     usbutils
-    wayland-protocols
-    wayland-utils
-    wget
-    wlroots
-    wl-clipboard
-    xdg-desktop-portal-hyprland
 
     # Applications
     git
@@ -109,55 +91,11 @@
 
     # Probably a .net core 3.1 dependency
     openssl_1_1
-
-    # Encrypt folders 
-    libsForQt5.plasma-vault
-
-    # Theme
-    rose-pine-gtk-theme
-    rose-pine-icon-theme
-    rose-pine-cursor
-
-    # Making kdePacakages apps work
-    kdePackages.qtwayland
   ];
-
-  # Setup theme
-  environment.variables.GTK_THEME = "rose-pine-dawn";
-  environment.variables.XCURSOR_THEME = "BreezeX-RosePineDawn-Linux";
-  environment.variables.XCURSOR_SIZE = "24";
-
-  # Fonts
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    nerdfonts
-    font-awesome
-  ];
-
-  # Enable numlock on boot
-  # TODO this seems to only enable the light...
-  systemd.services.numLockOnTty = {
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      # /run/current-system/sw/bin/setleds -D +num < "$tty";
-      ExecStart = lib.mkForce (pkgs.writeShellScript "numLockOnTty" ''
-        for tty in /dev/tty{1..6}; do
-            ${pkgs.kbd}/bin/setleds -D +num < "$tty";
-        done
-      '');
-    };
-  };
-
 
   programs.ssh.startAgent = true;
 
-  programs.partition-manager.enable = true;
-
+  services.resolved.enable = true;
   networking = {
     wireguard = {
       enable = true;
@@ -165,9 +103,22 @@
     networkmanager = {
       enable = true;
     };
+    # Allow wireguard through the firewall
+    firewall = {
+      # if packets are still dropped, they will show up in dmesg
+      logReversePathDrops = true;
+      # wireguard trips rpfilter up
+      extraCommands = ''
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN
+      '';
+      extraStopCommands = ''
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN || true
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN || true
+      '';
+    };
   };
 
-  programs.nm-applet.enable = true;
   security.polkit.enable = true;
 
 }

@@ -40,50 +40,91 @@
       nixosConfigurations = {
 
         # Build for my desktop.
-        desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+        desktop = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs outputs;
+            hasUI = true;
+          };
 
           modules = [
             ./nixos/desktop/configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
+              home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
+                {
+                  inherit inputs outputs;
+                }
+                specialArgs
+              ];
               home-manager.users.remco.imports = [ ./home-manager/home.nix ];
             }
           ];
         };
 
         # Build for my gaming laptop.
-        laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+        laptop = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs outputs;
+            hasUI = true;
+          };
 
           modules = [
             ./nixos/laptop/configuration.nix
             nixos-hardware.nixosModules.lenovo-legion-16ach6h-hybrid
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
+              home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
+                {
+                  inherit inputs outputs;
+                }
+                specialArgs
+              ];
+
               home-manager.users.remco.imports = [ ./home-manager/home.nix ];
             }
           ];
         };
 
         # Build for my thinkpad. 
-        thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+        thinkpad = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs outputs;
+            hasUI = true;
+          };
 
           modules = [
             ./nixos/thinkpad/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
+              home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
+                {
+                  inherit inputs outputs;
+                }
+                specialArgs
+              ];
+              home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+            }
+          ];
+        };
+
+        # Build for my dev vm's
+        vm = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs outputs;
+            hasUI = false;
+          };
+
+          modules = [
+            # ./nixos/vm/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
+                {
+                  inherit inputs outputs;
+                }
+                specialArgs
+              ];
               home-manager.users.remco.imports = [ ./home-manager/home.nix ];
             }
           ];
