@@ -68,6 +68,7 @@
     bitwarden-cli
     wireguard-tools
     tree-sitter
+    btop
 
     # Languages used for dev.
     python3
