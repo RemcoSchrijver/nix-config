@@ -20,6 +20,15 @@
     };
   };
 
+  # Enable flatpak and set paths
+  services.flatpak.enable = true;
+  environment.sessionVariables = rec {
+    XDG_DATA_DIRS = [
+      "/var/lib/flatpak/exports/share"
+      "/home/remco/.local/share/flatpak/exports/share"
+    ];
+  };
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # List packages installed in system profile. To search, run:

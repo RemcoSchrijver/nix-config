@@ -116,7 +116,7 @@
           };
 
           modules = [
-            # ./nixos/vm/configuration.nix
+            ./nixos/vm/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
