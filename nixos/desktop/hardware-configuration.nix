@@ -10,11 +10,11 @@
     ];
 
   boot = {
-      initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-      initrd.kernelModules = [ ];
-      kernelModules = [ "kvm-amd" ];
-      kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
-      extraModulePackages = [ ];
+    initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-amd" ];
+    kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+    extraModulePackages = [ ];
   };
 
 

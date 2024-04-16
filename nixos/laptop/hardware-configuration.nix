@@ -21,7 +21,7 @@ in
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
-  boot.kernelParams = [ "amdgpu.backlight=0" "nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
+  boot.kernelParams = [ "amdgpu.backlight=0" "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
   fileSystems."/" =
     {

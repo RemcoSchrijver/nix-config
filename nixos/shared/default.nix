@@ -5,19 +5,9 @@
 , specialArgs
 , ...
 }: {
-  imports = 
-    [
-      (if specialArgs.hasUI then ./ui.nix else "")
-    ];
-  
-  # Enable flatpak and set paths
-  services.flatpak.enable = true;
-  environment.sessionVariables = rec {
-    XDG_DATA_DIRS = [
-      "/var/lib/flatpak/exports/share"
-      "/home/remco/.local/share/flatpak/exports/share"
-    ];
-  };
+  imports =
+    [ ] ++
+    (if specialArgs.hasUI then [ ./ui.nix ] else [ ]);
 
   # Garbage collection
   nix.gc = {
@@ -78,6 +68,7 @@
     bitwarden-cli
     wireguard-tools
     tree-sitter
+    btop
 
     # Languages used for dev.
     python3
@@ -88,9 +79,6 @@
     libnotify
     nss
     alsa-lib
-
-    # Probably a .net core 3.1 dependency
-    openssl_1_1
   ];
 
   programs.ssh.startAgent = true;
