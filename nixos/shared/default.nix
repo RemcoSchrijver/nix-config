@@ -83,7 +83,6 @@
 
   programs.ssh.startAgent = true;
 
-  services.resolved.enable = true;
   networking = {
     wireguard = {
       enable = true;
