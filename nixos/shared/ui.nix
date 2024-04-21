@@ -89,4 +89,7 @@
 
   programs.nm-applet.enable = true;
 
+  # Enable KDE connect
+  programs.kdeconnect.enable = true;
+
 }
