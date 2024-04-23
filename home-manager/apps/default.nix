@@ -17,6 +17,7 @@ in
         ./remote-management.nix
         ./simplescreenrecorder.nix
         ./zotero.nix
+        ./office-suite.nix
       ];
     in
     [
