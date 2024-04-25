@@ -44,6 +44,7 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = true;
+            hasGaming = true;
           };
 
           modules = [
@@ -66,6 +67,7 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = true;
+            hasGaming = true;
           };
 
           modules = [
@@ -90,6 +92,7 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = true;
+            hasGaming = false;
           };
 
           modules = [
@@ -113,6 +116,7 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = false;
+            hasGaming = false;
           };
 
           modules = [

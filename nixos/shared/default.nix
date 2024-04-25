@@ -7,7 +7,8 @@
 }: {
   imports =
     [ ] ++
-    (if specialArgs.hasUI then [ ./ui.nix ] else [ ]);
+    (if specialArgs.hasUI then [ ./ui.nix ] else [ ]) ++
+    (if specialArgs.hasGaming then [ ./gaming.nix ] else [ ]);
 
   # Garbage collection
   nix.gc = {

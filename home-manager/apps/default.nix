@@ -1,6 +1,6 @@
 { config, pkgs, specialArgs, ... }:
 let
-  inherit (specialArgs) hasUI;
+  inherit (specialArgs) hasUI hasGaming;
 in
 {
   imports =
@@ -19,6 +19,9 @@ in
         ./zotero.nix
         ./office-suite.nix
       ];
+      gaming_imports = [
+        ./ryujinx.nix
+      ];
     in
     [
       ./direnv.nix
@@ -32,5 +35,6 @@ in
       ./uair/uair.nix
       ./terminal.nix
     ] ++
-    (if hasUI then ui_imports else [ ]);
+    (if hasUI then ui_imports else [ ]) ++
+    (if hasGaming then gaming_imports else [ ]);
 }
