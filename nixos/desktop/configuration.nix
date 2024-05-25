@@ -118,8 +118,11 @@
     packages = with pkgs; [
       kate
       thunderbird
+      teamviewer
     ];
   };
+
+  services.teamviewer.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
