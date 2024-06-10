@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    pkgs.cp210x-program
+    pkgs.platformio
   ];
 }

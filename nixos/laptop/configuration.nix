@@ -108,7 +108,7 @@
   users.users.remco = {
     isNormalUser = true;
     description = "Remco Schrijver";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
       firefox
       kate
@@ -131,4 +131,10 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  # install ollama
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
 }

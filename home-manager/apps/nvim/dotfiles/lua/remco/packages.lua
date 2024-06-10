@@ -95,6 +95,15 @@ local plugins = {
     {
         'lervag/vimtex'
     },
+    {
+        'jhofscheier/ltex-utils.nvim',
+        dependencies = {
+            'neovim/nvim-lspconfig',
+            'nvim-telescope/telescope.nvim',
+            'nvim-telescope/telescope-fzf-native.nvim',
+        },
+        opts = {},
+    }
 }
 
 local opts = {
