@@ -1,5 +1,5 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# your system.  Help is available in the configuration.nix(5) man pagenetw
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { inputs
@@ -50,10 +50,18 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "rs-desktop-nixos"; # Define your hostname.
+  networking = {
+    hostName = "rs-desktop-nixos"; # Define your hostname.
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+    firewall =
+      {
+        enable = true;
+        allowedTCPPorts = [ 3017 3024 ];
+      };
+
+    # Enable networking
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";

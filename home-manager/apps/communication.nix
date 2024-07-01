@@ -6,7 +6,7 @@
     pkgs.fluffychat
 
     # Mattermost
-    pkgs.mattermost-desktop
+    # pkgs.mattermost-desktop
 
     # Zoom
     pkgs.zoom-us

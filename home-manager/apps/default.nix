@@ -9,7 +9,7 @@ in
         ./3d-printing
         ./browsers.nix
         ./communication.nix
-        ./compositor
+        # ./compositor
         ./jetbrains.nix
         ./kde.nix
         ./media.nix
