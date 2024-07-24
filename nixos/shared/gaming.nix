@@ -21,5 +21,6 @@
 
   environment.systemPackages = with pkgs; [
     dualsensectl
+    openssl_1_1
   ];
 }

@@ -18,6 +18,9 @@
       window = {
         opacity = 0.85;
       };
+      scrolling = {
+        history = 1000;
+      };
     };
   };
 }
