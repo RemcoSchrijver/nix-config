@@ -121,15 +121,14 @@
       };
 
     # Enable the KDE Plasma Desktop Environment.
-    displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
   };
+
+  services.displayManager.sddm.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
