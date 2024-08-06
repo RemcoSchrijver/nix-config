@@ -45,6 +45,7 @@
             inherit inputs outputs;
             hasUI = true;
             hasGaming = true;
+            hasBluetooth = false;
           };
 
           modules = [
@@ -68,6 +69,7 @@
             inherit inputs outputs;
             hasUI = true;
             hasGaming = true;
+            hasBluetooth = true;
           };
 
           modules = [
@@ -93,6 +95,7 @@
             inherit inputs outputs;
             hasUI = true;
             hasGaming = false;
+            hasBluetooth = true;
           };
 
           modules = [
@@ -117,6 +120,7 @@
             inherit inputs outputs;
             hasUI = false;
             hasGaming = false;
+            hasBluetooth = false;
           };
 
           modules = [
