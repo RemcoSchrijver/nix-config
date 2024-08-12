@@ -10,15 +10,15 @@
 
 
   # Enable screen sharing on wayland
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
-    };
-  };
+  # xdg = {
+  #   portal = {
+  #     enable = true;
+  #     extraPortals = with pkgs; [
+  #       xdg-desktop-portal-wlr
+  #       xdg-desktop-portal-gtk
+  #     ];
+  #   };
+  # };
 
   # Enable flatpak and set paths
   services.flatpak.enable = true;
@@ -35,11 +35,11 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Utilities
-    wayland-protocols
-    wayland-utils
-    wlroots
-    wl-clipboard
-    xdg-desktop-portal-hyprland
+    # wayland-protocols
+    # wayland-utils
+    # wlroots
+    # wl-clipboard
+    # xdg-desktop-portal-hyprland
 
     # Encrypt folders 
     libsForQt5.plasma-vault
@@ -50,7 +50,7 @@
     rose-pine-cursor
 
     # Making kdePacakages apps work
-    kdePackages.qtwayland
+    # kdePackages.qtwayland
   ];
 
   # Setup theme
