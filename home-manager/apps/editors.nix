@@ -6,5 +6,6 @@
     pkgs.inkscape
     pkgs.gimp
     pkgs.imagemagick
+    pkgs.darktable
   ];
 }

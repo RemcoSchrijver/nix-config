@@ -21,8 +21,9 @@ vim.keymap.set('x', '<leader>p', "\"_dP")
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- Use <leader>x to chmod something to be executable
+-- Use <leader>x to chmod something to be executable, use <leader>X to undo it
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>X", "<cmd>!chmod -x %<CR>", { silent = true })
 
 -- Use <leader>d to delete to void
 vim.keymap.set('n', '<leader>d', "\"_d")

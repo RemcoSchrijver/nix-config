@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     kdePackages.kclock
     kdePackages.merkuro
+    kdePackages.kamera
     kup
     kaffeine
   ];
