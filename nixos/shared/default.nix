@@ -38,8 +38,6 @@
   # Enable docker
   virtualisation.docker = {
     enable = true;
-    # TODO make nvidia an option, not doing that rn.
-    #enableNvidia = true;
   };
   # virtualisation.docker.rootless = {
   # enable = true;

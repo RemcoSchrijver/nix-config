@@ -80,13 +80,17 @@
     LC_TELEPHONE = "nl_NL.UTF-8";
     LC_TIME = "nl_NL.UTF-8";
   };
+  
+  # Displaymanager used by KDE.
+  # TODO moved this to some shared UI enable function, gotta split out KDE/Hyprland some day.
+  services.displayManager.sddm.enable = true;
+  services.xserver = {
+    # Enable the X11 windowing system.
+    enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+    # Enable the KDE Plasma Desktop Environment.
+    desktopManager.plasma5.enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -138,7 +142,6 @@
 
   # Enable docker
   virtualisation.docker.enable = true;
-  virtualisation.docker.enableNvidia = true;
   # virtualisation.docker.rootless = {
   # enable = true;
   # setSocketVariable = true;

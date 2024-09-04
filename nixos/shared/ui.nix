@@ -4,9 +4,9 @@
 , pkgs
 , ...
 }: {
-  programs.hyprland = {
-    enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  # };
 
 
   # Enable screen sharing on wayland

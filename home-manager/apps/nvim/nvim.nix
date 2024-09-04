@@ -4,7 +4,6 @@
   home.packages = [
     pkgs.nixpkgs-fmt
     pkgs.cargo
-    pkgs.llm-ls
     pkgs.texliveFull
   ];
 

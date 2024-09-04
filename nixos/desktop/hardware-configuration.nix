@@ -45,10 +45,9 @@
     };
 
   # Display drivers
-  # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Enable wake-on-lan
@@ -57,23 +56,26 @@
   # Load nvidia drivers
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  hardware.nvidia = {
-    # Modesetting is required.
-    modesetting.enable = true;
+  hardware = {
+    nvidia-container-toolkit.enable = true;
+    nvidia = {
+      # Modesetting is required.
+      modesetting.enable = true;
 
-    # Nvidia powermanagement is experimental and may cause sleep to fail disable if need be.
-    powerManagement.enable = true;
-    # Nvidia finegrained powermangement only works on Turing or newer cards, and offload enabled.
-    powerManagement.finegrained = false;
+      # Nvidia powermanagement is experimental and may cause sleep to fail disable if need be.
+      powerManagement.enable = true;
+      # Nvidia finegrained powermangement only works on Turing or newer cards, and offload enabled.
+      powerManagement.finegrained = false;
 
-    # Open source kernel module (seems to break steam games maybe?)
-    open = false;
+      # Open source kernel module (seems to break steam games maybe?)
+      open = false;
 
-    # Enable Nvidia settings menu
-    nvidiaSettings = true;
+      # Enable Nvidia settings menu
+      nvidiaSettings = true;
 
-    # Set package, sticking with stable for now.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+      # Set package, sticking with stable for now.
+      package = config.boot.kernelPackages.nvidiaPackages.production;
+    };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

@@ -32,7 +32,6 @@ in
       ./nextcloud-client.nix
       ./nvim/nvim.nix
       ./tmux/tmux.nix
-      ./uair/uair.nix
       ./terminal.nix
     ] ++
     (if hasUI then ui_imports else [ ]) ++

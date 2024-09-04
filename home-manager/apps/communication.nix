@@ -3,7 +3,7 @@
 {
   home.packages = [
     # Matrix
-    pkgs.fluffychat
+    # pkgs.fluffychat
 
     # Mattermost
     # pkgs.mattermost-desktop
