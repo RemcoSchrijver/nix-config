@@ -57,6 +57,8 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = true;
+            hasKDE = true;
+            hasHyprland = true;
             hasGaming = true;
             hasBluetooth = false;
           };
@@ -81,6 +83,8 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = true;
+            hasKDE = true;
+            hasHyprland = false;
             hasGaming = true;
             hasBluetooth = true;
           };
@@ -108,6 +112,8 @@
             inherit inputs outputs;
             hasUI = true;
             hasGaming = false;
+            hasKDE = true;
+            hasHyprland = false;
             hasBluetooth = true;
           };
 
@@ -132,6 +138,8 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = false;
+            hasKDE = false;
+            hasHyprland = false;
             hasGaming = false;
             hasBluetooth = false;
           };
@@ -152,17 +160,5 @@
         };
       };
 
-      # homeConfigurations = {
-      #   "remco@nixos" = home-manager.lib.homeManagerConfiguration {
-      #     pkgs = nixpkgs.legacyPackages.${system};
-      #
-      #     extraSpecialArgs = {
-      #       inherit inputs outputs;
-      #       nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
-      #     };
-      #
-      #     modules = [ ./home-manager/home.nix ];
-      #   };
-      # };
     };
 }

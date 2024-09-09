@@ -5,9 +5,6 @@
     # Matrix
     # pkgs.fluffychat
 
-    # Mattermost
-    # pkgs.mattermost-desktop
-
     # Zoom
     pkgs.zoom-us
 

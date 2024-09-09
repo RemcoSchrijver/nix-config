@@ -12,7 +12,6 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./nvidia.nix
       ../shared
     ];
   nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
@@ -24,10 +23,6 @@
   networking.hostName = "rs-laptop-nixos"; # Define your hostname.
 
   hardware.nvidia.prime.amdgpuBusId = "PCI:6:0:0";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # fwupd for updating firmware of internals
   services.fwupd.enable = true;
@@ -72,38 +67,6 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
-  services.xserver = {
-    # Enable the X11 windowing system.
-    enable = true;
-    dpi = 120;
-
-    # Configure keymap in X11
-    xkb =
-      {
-        layout = "us";
-        variant = "";
-      };
-
-    # Enable the KDE Plasma Desktop Environment.
-    desktopManager.plasma5.enable = true;
-  };
-
-  services.displayManager.sddm.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio = {
-    enable = true;
-    support32Bit = true;
-  };
-
-  security.rtkit.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.remco = {
     isNormalUser = true;
@@ -121,9 +84,6 @@
   # Packages installed for only the laptop.
   environment.systemPackages = with pkgs; [ ];
 
-
-  networking.firewall.enable = true;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -131,10 +91,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
-  # install ollama
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-  };
 }

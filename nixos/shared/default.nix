@@ -8,7 +8,9 @@
   imports =
     [ ] ++
     (if specialArgs.hasUI then [ ./ui.nix ] else [ ]) ++
-    (if specialArgs.hasBluetooth then [ ./bluetooth.nix] else [ ]) ++
+    (if specialArgs.hasUI && specialArgs.hasKDE then [ ./kde.nix ] else [ ]) ++
+    (if specialArgs.hasUI && specialArgs.hasHyprland then [ ./ui.nix ] else [ ]) ++
+    (if specialArgs.hasBluetooth then [ ./bluetooth.nix ] else [ ]) ++
     (if specialArgs.hasGaming then [ ./gaming.nix ] else [ ]);
 
   # Garbage collection
@@ -57,6 +59,7 @@
     ripgrep
     smartmontools
     unzip
+    pciutils
     usbutils
 
     # Applications
@@ -89,21 +92,18 @@
     };
     # Allow wireguard through the firewall
     firewall = {
+      enable = true;
       # if packets are still dropped, they will show up in dmesg
       logReversePathDrops = true;
       checkReversePath = "loose";
-      # wireguard trips rpfilter up
-      # extraCommands = ''
-      #   ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 63941 -j RETURN
-      #   ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 63941 -j RETURN
-      # '';
-      # extraStopCommands = ''
-      #   ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 63941 -j RETURN || true
-      #   ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 63941 -j RETURN || true
-      # '';
     };
   };
 
-  security.polkit.enable = true;
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
 }

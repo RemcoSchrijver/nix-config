@@ -58,9 +58,6 @@
         enable = true;
         allowedTCPPorts = [ 3017 3024 ];
       };
-
-    # Enable networking
-    networkmanager.enable = true;
   };
 
   # Set your time zone.
@@ -81,36 +78,6 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
-  # Displaymanager used by KDE.
-  # TODO moved this to some shared UI enable function, gotta split out KDE/Hyprland some day.
-  services.displayManager.sddm.enable = true;
-  services.xserver = {
-    # Enable the X11 windowing system.
-    enable = true;
-
-    # Enable the KDE Plasma Desktop Environment.
-    desktopManager.plasma5.enable = true;
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  hardware.pulseaudio = {
-    enable = true;
-    support32Bit = true;
-  };
-
-  security.rtkit.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.remco = {
     isNormalUser = true;
@@ -126,11 +93,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   ];
-
-  # Enable docker
-  virtualisation.docker.enable = true;
-
-  programs.partition-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

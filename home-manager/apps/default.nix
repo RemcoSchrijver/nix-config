@@ -1,6 +1,6 @@
 { config, pkgs, specialArgs, ... }:
 let
-  inherit (specialArgs) hasUI hasGaming;
+  inherit (specialArgs) hasUI hasGaming hasKDE hasHyprland;
 in
 {
   imports =
@@ -9,24 +9,23 @@ in
         ./3d-printing
         ./browsers.nix
         ./communication.nix
-        ./compositor
         ./jetbrains.nix
-        ./kde.nix
         ./media.nix
         ./remote-management.nix
         ./simplescreenrecorder.nix
-        ./zotero.nix
         ./office-suite.nix
       ];
       gaming_imports = [
         ./ryujinx.nix
+        ./game-dependencies.nix
       ];
+      kde_imports = [ ./kde.nix ];
+      hyprland_imports = [ ./compositor ];
     in
     [
       ./direnv.nix
       ./editors.nix
       ./esp-programming.nix
-      ./game-dependencies.nix
       ./git.nix
       ./nextcloud-client.nix
       ./nvim/nvim.nix
@@ -34,5 +33,7 @@ in
       ./terminal.nix
     ] ++
     (if hasUI then ui_imports else [ ]) ++
+    (if hasUI && hasKDE then kde_imports else [ ]) ++
+    (if hasUI && hasHyprland then hyprland_imports else [ ]) ++
     (if hasGaming then gaming_imports else [ ]);
 }
