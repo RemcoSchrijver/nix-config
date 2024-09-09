@@ -106,33 +106,6 @@
           ];
         };
 
-        # Build for my thinkpad. 
-        thinkpad = nixpkgs.lib.nixosSystem rec {
-          specialArgs = {
-            inherit inputs outputs;
-            hasUI = true;
-            hasGaming = false;
-            hasKDE = true;
-            hasHyprland = false;
-            hasBluetooth = true;
-          };
-
-          modules = [
-            ./nixos/thinkpad/configuration.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-x1-7th-gen
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
-                {
-                  inherit inputs outputs;
-                }
-                specialArgs
-              ];
-              home-manager.users.remco.imports = [ ./home-manager/home.nix ];
-            }
-          ];
-        };
-
         # Build for my dev vm's
         vm = nixpkgs.lib.nixosSystem rec {
           specialArgs = {
