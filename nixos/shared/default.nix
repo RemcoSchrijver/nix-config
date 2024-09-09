@@ -18,6 +18,7 @@
     options = "--delete-older-than 60d";
   };
 
+
   # Fix neovim plugins for Mason not working
   programs.nix-ld.enable = true;
 
