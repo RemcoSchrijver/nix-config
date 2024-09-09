@@ -2,6 +2,6 @@
 {
   home.packages = [
     pkgs.tigervnc
-    # pkgs.nomachine-client
+    pkgs.nomachine-client
   ];
 }

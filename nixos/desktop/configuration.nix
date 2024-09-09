@@ -80,7 +80,7 @@
     LC_TELEPHONE = "nl_NL.UTF-8";
     LC_TIME = "nl_NL.UTF-8";
   };
-  
+
   # Displaymanager used by KDE.
   # TODO moved this to some shared UI enable function, gotta split out KDE/Hyprland some day.
   services.displayManager.sddm.enable = true;
@@ -101,16 +101,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable flatpak and set paths
-  services.flatpak.enable = true;
-  environment.sessionVariables = rec {
-    XDG_DATA_DIRS = [
-      "/var/lib/flatpak/exports/share"
-      "/home/remco/.local/share/flatpak/exports/share"
-    ];
-  };
-
-  # Enable sound with pipewire.
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
@@ -129,11 +119,8 @@
     packages = with pkgs; [
       kate
       thunderbird
-      teamviewer
     ];
   };
-
-  services.teamviewer.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -142,12 +129,6 @@
 
   # Enable docker
   virtualisation.docker.enable = true;
-  # virtualisation.docker.rootless = {
-  # enable = true;
-  # setSocketVariable = true;
-  # };
-
-  programs.ssh.startAgent = true;
 
   programs.partition-manager.enable = true;
 
@@ -175,9 +156,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  # install ollama
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-  };
 }
