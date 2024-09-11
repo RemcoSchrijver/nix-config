@@ -21,6 +21,9 @@
       scrolling = {
         history = 1000;
       };
+      env = {
+        TERM = "xterm-256color";
+      };
     };
   };
 }
