@@ -1,11 +1,12 @@
 { config, pkgs, theme, ... }:
 
 {
-  home.packages = [
-    pkgs.drawio
-    pkgs.inkscape
-    pkgs.gimp
-    pkgs.imagemagick
-    pkgs.darktable
+  home.packages = with pkgs; [
+    drawio
+    inkscape
+    gimp
+    imagemagick
+    darktable
+    ventoy-full
   ];
 }
