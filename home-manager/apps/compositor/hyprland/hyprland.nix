@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    blueman
     pamixer
     brightnessctl
     wireplumber
@@ -12,6 +13,8 @@
     libsForQt5.kwallet-pam
   ];
 
+  programs.kitty.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -20,8 +23,8 @@
         source = ./configs/settings.conf
         source = ./configs/windowrules.conf
         source = ./configs/keybinds.conf
-        ${(if osConfig.networking.hostName == "rs-thinkpad-nixos" then "source = ./configs/hosts/thinkpad.conf" else "")}
     '';
+        # ${(if osConfig.networking.hostName == "rs-thinkpad-nixos" then "source = ./configs/hosts/thinkpad.conf" else "")}
 
   };
 

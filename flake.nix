@@ -74,6 +74,7 @@
                 specialArgs
               ];
               home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+              home-manager.backupFileExtension = "backup";
             }
           ];
         };
@@ -100,8 +101,36 @@
                 }
                 specialArgs
               ];
-
               home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+              home-manager.backupFileExtension = "backup";
+            }
+          ];
+        };
+
+        # Build for my framework laptop.
+        framework = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs outputs;
+            hasUI = true;
+            hasKDE = false;
+            hasHyprland = true;
+            hasGaming = false;
+            hasBluetooth = true;
+          };
+
+          modules = [
+            ./nixos/framework/configuration.nix
+            # nixos-hardware.nixosModules.framework.amd-7040
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
+                {
+                  inherit inputs outputs;
+                }
+                specialArgs
+              ];
+              home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+              home-manager.backupFileExtension = "backup";
             }
           ];
         };
@@ -128,6 +157,7 @@
                 specialArgs
               ];
               home-manager.users.remco.imports = [ ./home-manager/home.nix ];
+              home-manager.backupFileExtension = "backup";
             }
           ];
         };

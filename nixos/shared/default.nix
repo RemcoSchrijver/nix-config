@@ -9,7 +9,7 @@
     [ ] ++
     (if specialArgs.hasUI then [ ./ui.nix ] else [ ]) ++
     (if specialArgs.hasUI && specialArgs.hasKDE then [ ./kde.nix ] else [ ]) ++
-    (if specialArgs.hasUI && specialArgs.hasHyprland then [ ./ui.nix ] else [ ]) ++
+    (if specialArgs.hasUI && specialArgs.hasHyprland then [ ./hyprland.nix ] else [ ]) ++
     (if specialArgs.hasBluetooth then [ ./bluetooth.nix ] else [ ]) ++
     (if specialArgs.hasGaming then [ ./gaming.nix ] else [ ]);
 
