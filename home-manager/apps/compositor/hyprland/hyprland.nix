@@ -6,7 +6,6 @@
     pamixer
     brightnessctl
     wireplumber
-    dunst
     networkmanagerapplet
     libsForQt5.polkit-kde-agent
     libsForQt5.kwallet

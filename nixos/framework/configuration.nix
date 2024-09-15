@@ -27,6 +27,8 @@
   # fwupd for updating firmware of internals
   services.fwupd.enable = true;
 
+  services.power-profiles-daemon.enable = true;
+
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

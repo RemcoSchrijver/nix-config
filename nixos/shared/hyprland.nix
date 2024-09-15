@@ -21,6 +21,11 @@
     };
   };
 
+  # Setup rose-pine-dawn theme.
+  environment.variables.GTK_THEME = "rose-pine-dawn";
+  environment.variables.XCURSOR_THEME = "BreezeX-RosePineDawn-Linux";
+  environment.variables.XCURSOR_SIZE = "24";
+
   environment.systemPackages = with pkgs; [
     # Utilities
     wayland-protocols

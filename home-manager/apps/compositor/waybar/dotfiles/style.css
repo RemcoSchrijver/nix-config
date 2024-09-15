@@ -75,6 +75,30 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
+#battery {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #B5E8E0;
+}
+
+#power-profiles-daemon {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #B0E9CA;
+}
+
 @keyframes blink {
     to {
         background-color: #BF616A;

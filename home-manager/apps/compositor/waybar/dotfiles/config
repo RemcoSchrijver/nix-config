@@ -2,7 +2,8 @@
 	"layer": "top",
 	"modules-left": ["custom/launcher", "custom/media","tray", "privacy"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["backlight","pulseaudio", "clock", "battery","custom/power"],
+	"modules-right": ["backlight","pulseaudio", "clock", "power-profiles-daemon", "battery", "custom/power"],
+
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
@@ -38,6 +39,7 @@
         "on-scroll-up": "light -A 5",
 		"on-scroll-down": "light -U 5"
 	},
+
     "battery": {
         "states": {
             "good": 95,
@@ -50,23 +52,40 @@
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
+    
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+
 	"tray":{
 		"icon-size": 18,
 		"spacing": 10
 	},
+
     "clock": {
         "interval": 1,
         "format": "{:%H:%M - %Y-%m-%d}"
     },
+
     "custom/launcher":{
         "format": " ",
         "on-click": "tofi-drun | xargs hyprctl dispatch exec -- ",
         "on-click-right": "killall tofi"
     },
+
     "custom/power":{
         "format": " ",
         "on-click": "hyprlock",
     },
+
     "privacy": {
         "icon-spacing": 4,
         "icon-size": 18,
