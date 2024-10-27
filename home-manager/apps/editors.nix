@@ -2,11 +2,12 @@
 
 {
   home.packages = with pkgs; [
+    darktable
     drawio
-    inkscape
     gimp
     imagemagick
-    darktable
+    inkscape
+    libsForQt5.kdenlive
     ventoy-full
   ];
 }
