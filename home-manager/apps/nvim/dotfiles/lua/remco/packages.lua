@@ -45,6 +45,12 @@ local plugins = {
         'tpope/vim-fugitive',
     },
     {
+        'nvimtools/none-ls.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        }
+    },
+    {
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
 
@@ -87,6 +93,13 @@ local plugins = {
             'nvim-telescope/telescope-fzf-native.nvim',
         },
         opts = {},
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
     }
 }
 
