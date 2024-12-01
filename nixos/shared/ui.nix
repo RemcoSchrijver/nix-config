@@ -33,7 +33,7 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    nerdfonts
+    nerd-fonts.jetbrains-mono
     font-awesome
   ];
 
