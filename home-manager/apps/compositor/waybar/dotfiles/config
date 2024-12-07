@@ -72,13 +72,13 @@
 
     "clock": {
         "interval": 1,
-        "format": "{:%H:%M - %Y-%m-%d}"
+        "format": "{:%H:%M - %Y-%m-%d}",
+        "tooltip": false
     },
 
     "custom/launcher":{
         "format": " ",
         "on-click": "tofi-drun | xargs hyprctl dispatch exec -- ",
-        "on-click-right": "killall tofi"
     },
 
     "custom/power":{
