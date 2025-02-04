@@ -7,6 +7,7 @@
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = false;
+      push.autoSetupRemote = true;
     };
     lfs.enable = true;
 
