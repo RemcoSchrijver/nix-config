@@ -18,7 +18,8 @@ local plugins = {
         tag = '0.1.3',
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'nvim-tree/nvim-web-devicons'
+            'nvim-tree/nvim-web-devicons',
+            'nvim-telescope/telescope-live-grep-args.nvim',
         },
     },
     {
