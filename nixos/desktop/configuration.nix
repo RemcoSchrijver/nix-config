@@ -84,7 +84,6 @@
     description = "Remco";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      kate
       thunderbird
     ];
   };
