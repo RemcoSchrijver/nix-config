@@ -13,7 +13,7 @@
     enable = true;
     settings = {
       general.import = [
-        "${pkgs.alacritty-theme}/rose_pine_dawn.toml"
+        "${pkgs.alacritty-theme}/share/alacritty-theme/rose_pine_dawn.toml"
       ];
       window = {
         opacity = 0.85;

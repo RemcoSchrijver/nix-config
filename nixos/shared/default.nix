@@ -20,6 +20,12 @@
     options = "--delete-older-than 60d";
   };
 
+  # Setting the number of cores to be used while building
+  nix.settings = {
+        cores = 4;
+        max-jobs = 8;
+  };
+
 
   # Fix neovim plugins for Mason not working
   programs.nix-ld.enable = true;
