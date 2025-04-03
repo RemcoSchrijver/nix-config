@@ -23,6 +23,8 @@ require('mason-lspconfig').setup({
         'lua_ls',
         -- markdown
         -- 'markdownlint',
+        -- perl
+        'perlnavigator',
         -- python
         'pyright',
         -- Don't install pylint, install it in your venv, else it will throw false errors.
@@ -53,6 +55,18 @@ lspconfig.ltex.setup({
     },
 })
 lspconfig.biome.setup({})
+lspconfig.perlnavigator.setup {
+    cmd = { "perlnavigator" },
+    settings = {
+        perlnavigator = {
+            perlPath = 'perl',
+            enableWarnings = true,
+            perltidyProfile = '',
+            perlcriticProfile = '',
+            perlcriticEnabled = true,
+        }
+    }
+}
 
 -- Settings for Null-ls
 local null_ls = require("null-ls")
