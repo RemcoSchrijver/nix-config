@@ -68,6 +68,14 @@ lspconfig.perlnavigator.setup {
     }
 }
 
+vim.filetype.add {
+    extension = {
+        jinja = 'jinja',
+        jinja2 = 'jinja',
+        j2 = 'jinja',
+    },
+}
+
 -- Settings for Null-ls
 local null_ls = require("null-ls")
 
