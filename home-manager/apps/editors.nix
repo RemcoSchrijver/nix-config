@@ -9,6 +9,6 @@
     imagemagick
     inkscape
     libsForQt5.kdenlive
-    ventoy-full
+    # ventoy-full
   ];
 }

@@ -97,7 +97,7 @@
     description = "Remco Schrijver";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      kate
+      kdePackages.kate
     #  thunderbird
     ];
   };
