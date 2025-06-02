@@ -18,7 +18,7 @@
       enable = true;
     };
     gamemode = {
-        enable = true;
+      enable = true;
     };
   };
 

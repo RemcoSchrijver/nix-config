@@ -23,7 +23,7 @@
         source = ./configs/windowrules.conf
         source = ./configs/keybinds.conf
     '';
-        # ${(if osConfig.networking.hostName == "rs-thinkpad-nixos" then "source = ./configs/hosts/thinkpad.conf" else "")}
+    # ${(if osConfig.networking.hostName == "rs-thinkpad-nixos" then "source = ./configs/hosts/thinkpad.conf" else "")}
 
   };
 

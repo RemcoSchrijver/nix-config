@@ -4,7 +4,6 @@
   home.packages = [
     pkgs.nixpkgs-fmt
     pkgs.cargo
-    pkgs.texliveFull
   ];
 
   programs.neovim = {

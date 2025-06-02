@@ -36,5 +36,5 @@
 
     # Making kdePacakages apps work
     kdePackages.qtwayland
-    ];
+  ];
 }

@@ -22,8 +22,8 @@
 
   # Setting the number of cores to be used while building
   nix.settings = {
-        cores = 4;
-        max-jobs = 8;
+    cores = 4;
+    max-jobs = 8;
   };
 
 

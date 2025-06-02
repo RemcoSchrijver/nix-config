@@ -44,12 +44,23 @@
     , nixpkgs
     , home-manager
     , nixos-hardware
+    , systems
     , ...
     } @ inputs:
     let
+      lib = nixpkgs.lib // home-manager.lib;
+      pkgsFor = lib.genAttrs (import systems) (
+        system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+      );
       inherit (self) outputs;
     in
     {
+      inherit lib;
+      overlays = import ./overlays {inherit inputs outputs;};
       nixosConfigurations = {
 
         # Build for my desktop.
@@ -163,5 +174,15 @@
         };
       };
 
+      homeConfigurations = {
+        # Work laptop
+        work = lib.homeManagerConfiguration {
+          modules = [ ./home-manager/work.nix ./home-manager/nixpkgs.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
+      };
     };
 }
