@@ -10,6 +10,7 @@
     ./apps/terminal.nix
     ./apps/tmux/tmux.nix
     ./apps/nvim/nvim.nix
+    ./compositors/i3
   ];
 
   # Enable XDG packages so we can use existing dotfiles.
