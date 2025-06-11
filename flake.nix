@@ -16,11 +16,15 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Hardware quirks
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -36,8 +40,13 @@
       url = "github:rose-pine/waybar";
       flake = false;
     };
-  };
 
+    # NixGL a shim necessary for non-NixOS hosts
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
   outputs =
     { self
@@ -45,6 +54,7 @@
     , home-manager
     , nixos-hardware
     , systems
+    , nixgl
     , ...
     } @ inputs:
     let
@@ -60,7 +70,7 @@
     in
     {
       inherit lib;
-      overlays = import ./overlays {inherit inputs outputs;};
+      overlays = import ./overlays { inherit inputs outputs; };
       nixosConfigurations = {
 
         # Build for my desktop.
@@ -177,10 +187,17 @@
       homeConfigurations = {
         # Work laptop
         work = lib.homeManagerConfiguration {
-          modules = [ ./home-manager/work.nix ./home-manager/nixpkgs.nix ];
-          pkgs = pkgsFor.x86_64-linux;
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+            overlays = [ nixgl.overlay ];
+          };
+          modules = [
+            ./home-manager/nixpkgs.nix
+            ./home-manager/work.nix
+          ];
           extraSpecialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs nixgl;
           };
         };
       };

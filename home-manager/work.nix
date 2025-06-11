@@ -1,8 +1,14 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, config, pkgs, nixgl, ... }: {
 
+  nixpkgs.config.allowUnfree = true;
   home = {
     username = "rschrijver";
     homeDirectory = "/home/rschrijver";
+  };
+  nixGL = {
+    packages = nixgl.packages;
+    defaultWrapper = "nvidia";
+    installScripts = [ "nvidia" ];
   };
 
   imports = [
@@ -10,7 +16,7 @@
     ./apps/terminal.nix
     ./apps/tmux/tmux.nix
     ./apps/nvim/nvim.nix
-    ./compositors/i3
+    ./compositors/i3/i3.nix
   ];
 
   # Enable XDG packages so we can use existing dotfiles.
