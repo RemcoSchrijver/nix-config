@@ -100,34 +100,6 @@
           ];
         };
 
-        # Build for my gaming laptop.
-        laptop = nixpkgs.lib.nixosSystem rec {
-          specialArgs = {
-            inherit inputs outputs;
-            hasUI = true;
-            hasKDE = true;
-            hasHyprland = false;
-            hasGaming = true;
-            hasBluetooth = true;
-          };
-
-          modules = [
-            ./nixos/laptop/configuration.nix
-            nixos-hardware.nixosModules.lenovo-legion-16ach6h-hybrid
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = nixpkgs.lib.mkMerge [
-                {
-                  inherit inputs outputs;
-                }
-                specialArgs
-              ];
-              home-manager.users.remco.imports = [ ./home-manager/home.nix ];
-              home-manager.backupFileExtension = "backup";
-            }
-          ];
-        };
-
         # Build for my framework laptop.
         framework = nixpkgs.lib.nixosSystem rec {
           specialArgs = {
