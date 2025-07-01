@@ -1,7 +1,7 @@
 set $mod Mod1
 
 # Set programs that you use
-set $terminal alacritty
+set $terminal "nixGLNvidiaPrime alacritty"
 set $menu dmenu_run
 
 # Keybinds
@@ -87,6 +87,9 @@ bindsym $mod+Shift+c reload
 
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
+
+# Lock i3
+bindsym mod4+l i3lock
 
 # Exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
