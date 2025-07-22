@@ -3,6 +3,13 @@ local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
 
+-- Diagnostics
+vim.diagnostic.config({
+    virtual_text = true,
+})
+
+
+-- Mason settings
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
