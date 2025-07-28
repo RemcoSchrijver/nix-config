@@ -2,8 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    audacity
-    darktable
+    # audacity
+    # darktable
     drawio
     gimp
     imagemagick

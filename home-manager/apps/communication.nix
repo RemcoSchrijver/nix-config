@@ -1,18 +1,15 @@
 { config, pkgs, theme, ... }:
 
 {
-  home.packages = [
+  home.packages = with pkgs; [
     # Matrix
-    # pkgs.fluffychat
+    fluffychat
 
-    # Zoom
-    pkgs.zoom-us
+    # Signal
+    scli
 
-    # Slack
-    pkgs.slack
-
-    # Whatsapp
-    pkgs.whatsapp-for-linux
+    # Whatsapp and Telegram
+    nchat
   ];
 }
 
