@@ -24,7 +24,7 @@ in
     in
     [
       ./direnv.nix
-      ./editors.nix
+      ./editors/editors.nix
       ./esp-programming.nix
       ./git.nix
       ./nextcloud-client.nix

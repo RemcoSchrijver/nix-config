@@ -1,14 +1,16 @@
 { config, pkgs, theme, ... }:
 
 {
+  imports = [
+    ./kdenlive.nix
+  ];
   home.packages = with pkgs; [
-    # audacity
+    audacity
     # darktable
     drawio
     gimp
     imagemagick
     inkscape
-    libsForQt5.kdenlive
     # ventoy-full
   ];
 }
