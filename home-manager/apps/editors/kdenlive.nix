@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    libsForQt5.kdenlive
+    kdePackages.kdenlive
 
     # Extra fonts
     vista-fonts

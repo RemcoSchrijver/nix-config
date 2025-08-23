@@ -5,12 +5,10 @@
 , ...
 }: {
   services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
-
-    # Enable the KDE Plasma Desktop Environment.
-    desktopManager.plasma5.enable = true;
   };
 
   # Configure keymap in X11
@@ -21,7 +19,7 @@
 
   environment.systemPackages = with pkgs; [
     # Encrypt folders 
-    libsForQt5.plasma-vault
+    kdePackages.plasma-vault
   ];
 
   # Setup theme

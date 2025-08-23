@@ -7,9 +7,9 @@
     brightnessctl
     wireplumber
     networkmanagerapplet
-    libsForQt5.polkit-kde-agent
-    libsForQt5.kwallet
-    libsForQt5.kwallet-pam
+    kdePackages.polkit-kde-agent-1
+    kdePackages.kwallet
+    kdePackages.kwallet-pam
   ];
 
   programs.kitty.enable = true;
