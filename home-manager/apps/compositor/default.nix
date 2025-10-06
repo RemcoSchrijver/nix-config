@@ -8,6 +8,8 @@
     ./hyprlock/hyprlock.nix
     ./hyprpaper/hyprpaper.nix
     ./hyprshot/hyprshot.nix
+    # ./sysauth/sysauth.nix
+    ./syspower/syspower.nix
     ./tofi/tofi.nix
     ./waybar/waybar.nix
   ];
