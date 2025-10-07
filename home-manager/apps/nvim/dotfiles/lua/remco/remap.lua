@@ -6,7 +6,7 @@ vim.keymap.set("n", "<leader>pv", function ()
     vim.cmd('Ex')
 end)
 
--- Allows for moving lines in V mode
+-- Allows for compacting lines in V mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 

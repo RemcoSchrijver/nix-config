@@ -9,7 +9,7 @@ neotest.setup({
             python = ".venv/bin/python",
         }),
         require("neotest-java")({
-            incremental_build=true,
+            incremental_build = true,
         })
     }
 })
