@@ -13,7 +13,7 @@ metals_config.settings = {
 }
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "scala", "sbt", "java" },
+    pattern = { "scala", "sbt", },
     callback = function()
         require("metals").initialize_or_attach(metals_config)
     end,

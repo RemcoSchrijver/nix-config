@@ -104,7 +104,6 @@ local plugins = {
         -- Todo clean this part up:
         -- https://lugh.ch/switching-to-neovim-native-lsp.html
 
-        { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
         {
             'nvimtools/none-ls.nvim',
             dependencies = {

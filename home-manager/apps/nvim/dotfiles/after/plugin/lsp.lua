@@ -1,13 +1,7 @@
-local lsp = require('lsp-zero')
-local lspconfig = require('lspconfig')
-
-lsp.preset('recommended')
-
 -- Diagnostics
 vim.diagnostic.config({
     virtual_text = true,
 })
-
 
 -- Mason settings
 require('mason').setup({})
@@ -46,37 +40,11 @@ require('mason-lspconfig').setup({
         -- YAML
         'yamlls',
     },
-    handlers = {
-        lsp.default_setup,
-    },
+
 })
 
-
-
-lsp.setup_servers({ 'dartls', force = true })
 
 -- Settings for LSPs
-lspconfig.ltex.setup({
-    settings = {
-        additionalRules = {
-            enablePickyRules = true,
-        },
-    },
-})
-lspconfig.biome.setup({})
-lspconfig.perlnavigator.setup {
-    cmd = { "perlnavigator" },
-    settings = {
-        perlnavigator = {
-            perlPath = 'perl',
-            enableWarnings = true,
-            perltidyProfile = '',
-            perlcriticProfile = '',
-            perlcriticEnabled = true,
-        }
-    }
-}
-
 vim.filetype.add {
     extension = {
         jinja = 'jinja',
@@ -103,7 +71,6 @@ null_ls.setup({
 
 -- cmp setup
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
     sources = cmp.config.sources({
@@ -120,8 +87,6 @@ cmp.setup({
         ['<A-Enter>'] = cmp.mapping.complete(),
 
         -- Navigate between snippet placeholders
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 
         -- Scroll through completions
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -129,11 +94,12 @@ cmp.setup({
     })
 })
 
-lsp.on_attach(function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        local opts = { buffer = ev.buf }
 
-    vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set('n', '<A-Enter>', function() vim.lsp.buf.code_action() end, opts)
-end)
-
-lsp.setup()
+        vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set('n', '<A-Enter>', function() vim.lsp.buf.code_action() end, opts)
+    end,
+})
