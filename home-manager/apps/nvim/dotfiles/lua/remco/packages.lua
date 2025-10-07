@@ -22,8 +22,8 @@ local plugins = {
             'nvim-telescope/telescope-live-grep-args.nvim',
         },
     },
+    -- Theme
     {
-        -- Theme
         "rose-pine/neovim",
         name = "rose-pine",
         lazy = false,    -- make sure we load this during startup if it is your main colorscheme
@@ -46,17 +46,6 @@ local plugins = {
         'tpope/vim-fugitive',
     },
     {
-        'nvimtools/none-ls.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        }
-    },
-    {
-        { 'williamboman/mason.nvim' },
-        { 'williamboman/mason-lspconfig.nvim' },
-
-        { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
-        { 'neovim/nvim-lspconfig' },
         { 'L3MON4D3/LuaSnip' },
         { 'hrsh7th/cmp-path' },
         { 'hrsh7th/cmp-nvim-lsp' },
@@ -78,13 +67,10 @@ local plugins = {
         lazy = false,
     },
     {
-        'scalameta/nvim-metals',
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        }
     },
     {
-        'lervag/vimtex'
+        'lervag/vimtex',
+        ft = { "latex" },
     },
     {
         'jhofscheier/ltex-utils.nvim',
@@ -102,15 +88,68 @@ local plugins = {
         -- use opts = {} for passing setup options
         -- this is equivalent to setup({}) function
     },
+
+    -- LSPs
+    {
+        -- General
+        { 'mason-org/mason.nvim' },
+        {
+            'neovim/nvim-lspconfig',
+            dependencies = {
+                { 'mason-org/mason-lspconfig.nvim' },
+            }
+
+        },
+
+        -- Todo clean this part up:
+        -- https://lugh.ch/switching-to-neovim-native-lsp.html
+
+        { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
+        {
+            'nvimtools/none-ls.nvim',
+            dependencies = {
+                'nvim-lua/plenary.nvim'
+            }
+        },
+        -- Scala
+        {
+            'scalameta/nvim-metals',
+            ft = { "scala" },
+            dependencies = {
+                'nvim-lua/plenary.nvim'
+            },
+        },
+        -- Java
+        {
+            'mfussenegger/nvim-jdtls',
+            ft = { "java" },
+            dependencies = {
+                'hrsh7th/cmp-nvim-lsp'
+            },
+        },
+    },
+
     -- Testing
     {
-        "nvim-neotest/neotest",
-        dependencies = {
-            "nvim-neotest/nvim-nio",
-            "nvim-lua/plenary.nvim",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-neotest/neotest-python"
+        {
+            "nvim-neotest/neotest",
+            dependencies = {
+                "nvim-neotest/nvim-nio",
+                "nvim-lua/plenary.nvim",
+                "antoinemadec/FixCursorHold.nvim",
+                "nvim-treesitter/nvim-treesitter",
+            },
+        },
+        {
+            "nvim-neotest/neotest-python",
+            ft = { "python" },
+        },
+        {
+            "rcasia/neotest-java",
+            ft = { "java" },
+            dependencies = {
+                "mfussenegger/nvim-jdtls",
+            },
         }
     }
 }

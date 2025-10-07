@@ -5,11 +5,11 @@
     username = "rschrijver";
     homeDirectory = "/home/rschrijver";
   };
-  nixGL = {
-    packages = nixgl.packages;
-    defaultWrapper = "nvidia";
-    installScripts = [ "nvidia" ];
-  };
+  # nixGL = {
+  #   packages = nixgl.packages;
+  #   defaultWrapper = "nvidia";
+  #   installScripts = [ "nvidia" ];
+  # };
 
   imports = [
     ./apps/direnv.nix

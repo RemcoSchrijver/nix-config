@@ -1,16 +1,20 @@
-require("neotest").setup({
+local neotest = require('neotest')
+
+neotest.setup({
     adapters = {
         require("neotest-python")({
             dap = { justMyCode = false },
             args = { "--log-level", "DEBUG" },
             runner = "pytest",
             python = ".venv/bin/python",
+        }),
+        require("neotest-java")({
+            incremental_build=true,
         })
     }
 })
 
 -- Neotest keymaps
-local neotest = require('neotest')
 
 vim.keymap.set("n", "<leader>tr", function() neotest.run.run() end, { desc = "Run nearest test" })
 vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand('%')) end, { desc = "Run current file" })

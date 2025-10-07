@@ -21,6 +21,8 @@ require('mason-lspconfig').setup({
         'omnisharp',
         -- docker
         'docker_compose_language_service',
+        -- Java
+        'jdtls',
         -- JSON
         'jsonls',
         -- latex
