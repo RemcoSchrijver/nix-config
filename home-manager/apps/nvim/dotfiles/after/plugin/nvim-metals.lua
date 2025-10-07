@@ -1,6 +1,6 @@
 local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 
-metals_config = require("metals").bare_config()
+local metals_config = require("metals").bare_config()
 
 metals_config.init_options.statusBarProvider = "on"
 
@@ -43,21 +43,21 @@ map("n", "<leader>aa", vim.diagnostic.setqflist)
 
 -- all workspace errors
 map("n", "<leader>ae", function()
-  vim.diagnostic.setqflist({ severity = "E" })
+  vim.diagnostic.setqflist({ severity =  vim.diagnostic.severity.ERROR })
 end)
 
 -- all workspace warnings
 map("n", "<leader>aw", function()
-  vim.diagnostic.setqflist({ severity = "W" })
+  vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.WARN })
 end)
 
 -- buffer diagnostics only
 map("n", "<leader>d", vim.diagnostic.setloclist)
 
-map("n", "[c", function()
-  vim.diagnostic.goto_prev({ wrap = false })
-end)
-
-map("n", "]c", function()
-  vim.diagnostic.goto_next({ wrap = false })
-end)
+-- map("n", "[c", function()
+--   vim.diagnostic.goto_prev({ wrap = false })
+-- end)
+--
+-- map("n", "]c", function()
+--   vim.diagnostic.goto_next({ wrap = false })
+-- end)
