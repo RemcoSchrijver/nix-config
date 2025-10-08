@@ -101,5 +101,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set('n', '<A-Enter>', function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set('n', '<leader>rn', function() vim.lsp.buf.rename() end, opts)
     end,
 })
