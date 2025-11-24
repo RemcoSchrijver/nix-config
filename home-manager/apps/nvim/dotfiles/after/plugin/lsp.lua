@@ -36,7 +36,7 @@ require('mason-lspconfig').setup({
         -- SQL
         'sqlls',
         -- TypeScript
-        'biome',
+        'ts_ls',
         -- YAML
         'yamlls',
     },

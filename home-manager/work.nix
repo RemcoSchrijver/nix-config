@@ -16,6 +16,7 @@
   imports = [
     ./apps/direnv.nix
     ./apps/terminal.nix
+    ./apps/github-cli.nix
     ./apps/tmux/tmux.nix
     ./apps/nvim/nvim.nix
     ./compositors/i3/i3.nix
