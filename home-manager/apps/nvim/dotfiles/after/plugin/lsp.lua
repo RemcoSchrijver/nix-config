@@ -43,6 +43,8 @@ require('mason-lspconfig').setup({
 
 })
 
+-- Enable LSPs
+vim.lsp.enable('dartls')
 
 -- Settings for LSPs
 vim.filetype.add {
