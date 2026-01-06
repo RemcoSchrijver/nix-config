@@ -96,7 +96,7 @@
   users.users.remco = {
     isNormalUser = true;
     description = "Remco Schrijver";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "dialout" "tty" ];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
