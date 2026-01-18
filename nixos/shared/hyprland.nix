@@ -33,6 +33,7 @@
     wlroots
     wl-clipboard
     xdg-desktop-portal-hyprland
+    kdePackages.kwallet
 
     # Making kdePacakages apps work
     kdePackages.qtwayland
