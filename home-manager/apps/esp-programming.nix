@@ -2,6 +2,7 @@
 
 {
   home.packages = [
+    pkgs.rpi-imager
     # pkgs.platformio
   ];
 }
