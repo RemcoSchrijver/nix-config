@@ -4,15 +4,16 @@
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
-      pull.rebase = false;
+      pull.rebase = true;
       push.autoSetupRemote = true;
+
+      user = {
+        name = "RemcoSchrijver";
+        email = "remco.schrijver@hotmail.com";
+      };
     };
     lfs.enable = true;
-
-    userName = "RemcoSchrijver";
-    userEmail = "remco.schrijver@hotmail.com";
-
   };
 }
