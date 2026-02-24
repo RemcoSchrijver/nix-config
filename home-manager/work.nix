@@ -20,6 +20,7 @@
     ./apps/tmux/tmux.nix
     ./apps/nvim/nvim.nix
     ./compositors/i3/i3.nix
+    ./apps/programming-languages/java.nix
   ];
 
   # Enable XDG packages so we can use existing dotfiles.
@@ -32,4 +33,10 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  # Install java versions and expose them as system variables for jdtls to use
+  java.runtimes = {
+    "17" = pkgs.corretto17;
+    "21" = pkgs.corretto21;
+  };
 }
