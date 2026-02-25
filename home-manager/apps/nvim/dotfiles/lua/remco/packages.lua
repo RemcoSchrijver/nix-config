@@ -140,6 +140,10 @@ local plugins = {
             },
         },
         {
+            "sidlatau/neotest-dart",
+            ft = { "dart" },
+        },
+        {
             "nvim-neotest/neotest-python",
             ft = { "python" },
         },

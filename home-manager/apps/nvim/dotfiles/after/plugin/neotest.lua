@@ -10,7 +10,11 @@ neotest.setup({
         }),
         require("neotest-java")({
             incremental_build = true,
-        })
+        }),
+        require("neotest-dart")({
+            command = 'flutter',
+            use_lsp = true,
+        }),
     }
 })
 
