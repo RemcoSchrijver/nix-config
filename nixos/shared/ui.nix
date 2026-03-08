@@ -4,6 +4,7 @@
 , pkgs
 , ...
 }: {
+  imports = [ ./thunar.nix ];
 
   # Enable flatpak and set paths
   services.flatpak.enable = true;
@@ -52,9 +53,10 @@
   };
 
   # More UI-based programs
-  programs.partition-manager.enable = true;
-
-  programs.nm-applet.enable = true;
+  programs = {
+    partition-manager.enable = true;
+    nm-applet.enable = true;
+  };
 
   # Enable KDE connect
   programs.kdeconnect.enable = true;
