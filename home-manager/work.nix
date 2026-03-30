@@ -39,4 +39,6 @@
     "17" = pkgs.corretto17;
     "21" = pkgs.corretto21;
   };
+
+  news.display = "silent";
 }
