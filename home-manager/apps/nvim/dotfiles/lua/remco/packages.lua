@@ -153,6 +153,10 @@ local plugins = {
             dependencies = {
                 "mfussenegger/nvim-jdtls",
             },
+        },
+        {
+            "nvim-neotest/neotest-jest",
+            ft = { "javascript" },
         }
     }
 }

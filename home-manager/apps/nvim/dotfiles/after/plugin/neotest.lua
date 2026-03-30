@@ -15,6 +15,11 @@ neotest.setup({
             command = 'flutter',
             use_lsp = true,
         }),
+        require("neotest-jest")({
+            cwd = function()
+                return vim.fn.getcwd()
+            end,
+        }),
     }
 })
 
