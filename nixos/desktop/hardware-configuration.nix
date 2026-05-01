@@ -37,11 +37,13 @@
   fileSystems."/games" =
     {
       device = "/dev/disk/by-label/Games";
+      fsType = "ext4";
     };
 
   fileSystems."/data" =
     {
       device = "/dev/disk/by-label/Data";
+      fsType = "ext4";
     };
 
   # Display drivers
