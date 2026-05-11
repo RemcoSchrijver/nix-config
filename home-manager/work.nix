@@ -19,6 +19,7 @@
     ./apps/github-cli.nix
     ./apps/tmux/tmux.nix
     ./apps/nvim/nvim.nix
+    ./apps/datalakes.nix
     ./compositors/i3/i3.nix
     ./apps/programming-languages/java.nix
   ];
