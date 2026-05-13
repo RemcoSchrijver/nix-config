@@ -6,8 +6,7 @@
     kdePackages.kclock
     kdePackages.merkuro
     kdePackages.kamera
-    kup
-    kaffeine
+    kdePackages.kup
   ];
 }
 

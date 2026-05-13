@@ -1,13 +1,9 @@
 { config, pkgs, theme, ... }:
 
 {
-  # Extra packages necessary for firefox
-  home.packages = with pkgs; [
-    firefoxpwa
-  ];
-
   # Firefox
   programs.firefox = {
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     enable = true;
     profiles.remco = {
       settings = {
@@ -20,9 +16,6 @@
         "signon.remeberSignons" = false;
       };
     };
-    nativeMessagingHosts = [
-      pkgs.firefoxpwa
-    ];
   };
 
   # Chromium
