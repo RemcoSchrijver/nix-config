@@ -1,4 +1,4 @@
-vim.lsp.config('perlnavigator', {
+return {
     cmd = { "perlnavigator" },
     settings = {
         perlnavigator = {
@@ -9,4 +9,4 @@ vim.lsp.config('perlnavigator', {
             perlcriticEnabled = true,
         }
     }
-})
+}

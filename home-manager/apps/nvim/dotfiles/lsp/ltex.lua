@@ -1,7 +1,7 @@
-vim.lsp.config('ltex', {
+return {
     settings = {
         additionalRules = {
             enablePickyRules = true,
         },
     },
-})
+}
