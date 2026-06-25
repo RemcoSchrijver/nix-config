@@ -39,6 +39,7 @@
   java.runtimes = {
     "17" = pkgs.corretto17;
     "21" = pkgs.corretto21;
+    "25" = pkgs.corretto25;
   };
 
   news.display = "silent";
