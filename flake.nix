@@ -26,6 +26,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Systems architecture helper
+    systems.url = "github:nix-systems/default";
+
     # Hardware quirks
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -38,6 +41,13 @@
     # Rosé Pine for Waybar
     waybar-rose-pine = {
       url = "github:rose-pine/waybar";
+      flake = false;
+    };
+
+    # Lombok jar for jdtls
+    lombok-jar = {
+      url = "https://repo1.maven.org/maven2/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar";
+      type = "file";
       flake = false;
     };
 
@@ -55,6 +65,7 @@
     , nixos-hardware
     , systems
     , nixgl
+    , lombok-jar
     , ...
     } @ inputs:
     let
@@ -169,7 +180,7 @@
             ./home-manager/work.nix
           ];
           extraSpecialArgs = {
-            inherit inputs outputs nixgl;
+            inherit inputs outputs nixgl lombok-jar;
           };
         };
       };
