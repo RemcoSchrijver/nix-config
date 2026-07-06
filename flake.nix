@@ -44,13 +44,6 @@
       flake = false;
     };
 
-    # Lombok jar for jdtls
-    lombok-jar = {
-      url = "https://repo1.maven.org/maven2/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar";
-      type = "file";
-      flake = false;
-    };
-
     # NixGL a shim necessary for non-NixOS hosts
     nixgl = {
       url = "github:nix-community/nixGL";
@@ -65,7 +58,6 @@
     , nixos-hardware
     , systems
     , nixgl
-    , lombok-jar
     , ...
     } @ inputs:
     let
@@ -180,7 +172,7 @@
             ./home-manager/work.nix
           ];
           extraSpecialArgs = {
-            inherit inputs outputs nixgl lombok-jar;
+            inherit inputs outputs nixgl;
           };
         };
       };

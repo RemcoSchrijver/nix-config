@@ -2,6 +2,11 @@
 
 let
   cfg = config.java;
+
+  lombokJarFile = pkgs.fetchurl {
+    url = "https://repo1.maven.org/maven2/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar";
+    hash = "sha256-AfexoBXjPiti1fXzcFMwY1erFBX9GB/Lp3lPXRmMESY=";
+  };
 in
 {
   options.java = {
@@ -20,7 +25,7 @@ in
         cfg.runtimes)
       // {
         NIX_JAVA_RUNTIMES = lib.concatStringsSep "," (lib.attrNames cfg.runtimes);
-        NIX_LOMBOK = "${inputs.lombok-jar}";
+        NIX_LOMBOK = "${lombokJarFile}";
       };
   };
 }
