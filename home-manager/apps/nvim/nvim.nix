@@ -6,6 +6,7 @@
     pkgs.cargo
     pkgs.gcc
     pkgs.tree-sitter
+    pkgs.gnumake
   ];
 
   programs.neovim = {
