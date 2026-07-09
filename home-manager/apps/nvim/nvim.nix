@@ -5,6 +5,7 @@
     pkgs.nixpkgs-fmt
     pkgs.cargo
     pkgs.gcc
+    pkgs.tree-sitter
   ];
 
   programs.neovim = {
