@@ -23,8 +23,7 @@ return {
     },
 
     cmd = {
-        vim.fn.expand '$HOME/.local/share/nvim/mason/bin/jdtls',
-        ('--jvm-arg=-javaagent:%s'):format(lombok_jar)
+        '$HOME/.local/share/nvim/mason/bin/jdtls --jvm-arg=-javaagent:$NIX_LOMBOK'
     },
 
     root_markers = { 'pom.xml', '.git' },
