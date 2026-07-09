@@ -5,6 +5,7 @@ vim.keymap.set('n', '<leader>ff', require('telescope').extensions.live_grep_args
 vim.keymap.set('n', '<leader>ps', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
+require('telescope').load_extension('fzf')
 
 require 'nvim-web-devicons'.setup {
     -- globally enable different highlight colors per icon (default to true)

@@ -20,6 +20,7 @@ local plugins = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
             'nvim-telescope/telescope-live-grep-args.nvim',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', lazy = false, },
         },
     },
     -- Theme
@@ -58,7 +59,7 @@ local plugins = {
         event = "VeryLazy",
         init = function()
             vim.o.timeout = true
-            vim.o.timeoutlen = 600
+            vim.o.timeoutlen = 800
         end,
         opts = {},
     },
@@ -77,7 +78,6 @@ local plugins = {
         dependencies = {
             'neovim/nvim-lspconfig',
             'nvim-telescope/telescope.nvim',
-            'nvim-telescope/telescope-fzf-native.nvim',
         },
         opts = {},
     },
