@@ -1,7 +1,7 @@
 require('nvim-treesitter').setup()
 
 local parsers = { "hyprlang", "c", "lua", "vim", "vimdoc", "query", "dart", "python", "javascript", "java", "c_sharp",
-    "yaml", "dockerfile", "json", "make", "scala" }
+    "yaml", "dockerfile", "json", "make", "scala", "puppet" }
 
 require('nvim-treesitter').install(parsers)
 
