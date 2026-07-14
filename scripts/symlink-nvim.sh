@@ -13,7 +13,7 @@ sudo chown -R "${USER}" ~/.config/nvim
 
 echo "Done symlinking neovim config"
 
-if $JAVA_HOME; then
+if [ -n "$JAVA_HOME" ]; then
     echo ""
     echo "You have a java version, lets do some variable magic to get the jdtls config to co-operate"
     dir=$(cd -- "$(dirname -- "$0")" && pwd)
