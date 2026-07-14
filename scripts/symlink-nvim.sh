@@ -7,6 +7,7 @@ mkdir -p ~/.config/nvim
 sudo chown -R "${USER}" ~/.local
 
 ln -sf ~/nix-config/home-manager/apps/nvim/dotfiles/*  ~/.config/nvim
+rm -f ~/.config/nvim/.lazy-lock.json
 
 sudo chown -R "${USER}" ~/.local
 sudo chown -R "${USER}" ~/.config/nvim
