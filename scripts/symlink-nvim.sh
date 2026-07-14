@@ -6,7 +6,7 @@ set -eou pipefail
 mkdir -p ~/.config/nvim
 sudo chown -R "${USER}" ~/.local
 
-ln -s ~/nix-config/home-manager/apps/nvim/dotfiles/*  ~/.config/nvim
+ln -sf ~/nix-config/home-manager/apps/nvim/dotfiles/*  ~/.config/nvim
 
 sudo chown -R "${USER}" ~/.local
 sudo chown -R "${USER}" ~/.config/nvim
