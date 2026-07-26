@@ -46,6 +46,8 @@ require('mason-lspconfig').setup({
 -- Enable LSPs
 vim.lsp.enable('dartls')
 
+vim.lsp.enable('rust_analyzer')
+
 -- Settings for LSPs
 vim.filetype.add {
     extension = {
