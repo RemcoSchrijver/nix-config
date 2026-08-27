@@ -67,6 +67,7 @@
     unzip
     pciutils
     usbutils
+    gparted
 
     # Applications
     git
