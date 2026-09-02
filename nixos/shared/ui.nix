@@ -21,7 +21,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Theme
-    rose-pine-gtk-theme
     rose-pine-icon-theme
     rose-pine-cursor
   ];

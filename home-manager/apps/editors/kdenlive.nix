@@ -13,7 +13,6 @@
     corefonts
 
     # Some stuff for auto subtitles
-    openai-whisper
     python313Packages.srt
     python313Packages.torch
     python313Packages.openai-whisper
