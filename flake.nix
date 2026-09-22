@@ -46,8 +46,7 @@
 
     # NixGL a shim necessary for non-NixOS hosts
     nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:catouc/nixGL";
     };
   };
 
@@ -165,7 +164,6 @@
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             config.allowUnfree = true;
-            #overlays = [ nixgl.overlay ];
           };
           modules = [
             ./home-manager/nixpkgs.nix

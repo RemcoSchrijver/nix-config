@@ -7,11 +7,11 @@
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "23.05";
   };
-  # nixGL = {
-  #   packages = nixgl.packages;
-  #   defaultWrapper = "nvidia";
-  #   installScripts = [ "nvidia" ];
-  # };
+  targets.genericLinux.nixGL = {
+    packages = nixgl.packages;
+    defaultWrapper = "mesa";
+    installScripts = [ "mesa" ];
+  };
 
   imports = [
     ./apps/direnv.nix
@@ -20,7 +20,7 @@
     ./apps/tmux/tmux.nix
     ./apps/nvim/nvim.nix
     ./apps/datalakes.nix
-    ./compositors/i3/i3.nix
+    ./apps/compositor
     ./apps/programming-languages/java.nix
   ];
 
@@ -41,6 +41,8 @@
     "21" = pkgs.corretto21;
     "25" = pkgs.corretto25;
   };
+
+  wayland.windowManager.hyprland.package = config.lib.nixGL.wrap pkgs.hyprland;
 
   news.display = "silent";
 }
