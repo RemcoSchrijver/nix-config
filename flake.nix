@@ -107,7 +107,7 @@
           specialArgs = {
             inherit inputs outputs;
             hasUI = true;
-            hasKDE = false;
+            hasKDE = true;
             hasHyprland = true;
             hasGaming = false;
             hasBluetooth = true;

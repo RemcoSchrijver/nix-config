@@ -6,7 +6,7 @@
     fluffychat
 
     # Signal
-    scli
+    signal-desktop
 
     # Whatsapp and Telegram
     nchat
