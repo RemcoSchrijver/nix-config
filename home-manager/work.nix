@@ -14,6 +14,7 @@
   };
 
   imports = [
+    ./apps/aws-cli.nix
     ./apps/direnv.nix
     ./apps/terminal.nix
     ./apps/github-cli.nix
